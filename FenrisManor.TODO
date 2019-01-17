@@ -1,0 +1,78 @@
+'Cmd/Ctrl+Enter' // Triggers `Todo: Toggle Box`
+'Alt+D' // Triggers `Todo: Toggle Done`
+'Alt+C' // Triggers `Todo: Toggle Cancelled`
+'Alt+S' // Triggers `Todo: Toggle Start`
+'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
+
+Izabell Sprite Art and Animation:
+    These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
+    Shapes will be heavily influenced by Simon Belmont from Casltevania ( https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png )
+        ✔ Walk Cycle @done(19-01-17 00:51)
+            This cycle took the most time because I had to settle upon a general size for the sprite to be. This took a lot of trial and error and resulted in several discarded WIP pieces. These pieces though will be useful for showing a step-by-step guide to how I settled upon the aesthetic for the game. 
+        ☐ Idle Position (Low Priority)
+            There are two options for this, it can be a unique position that leads into all of the others through the first frame of the walk cycle, or it can just be the first frame of the walk cycle. This is a low priority asset, and likely will just be canceled in the future
+        ☐ Crouch Position
+            This position should also have an animation for attacking.
+        ☐ Jump Animation
+    Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
+        ☐ Attack Animation
+            Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position, but not the jump position
+            ☐ Weapon Animation
+        ☐ Damage Animation (Mid Priority)
+            This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
+        ☐ Death Animation (Low Priority)
+            Not mandatory, but will play when the player takes enough damage to die.
+    
+Big Doggo Sprite Art and Animation:
+    More attack patterns may be added as necessary
+        ☐ 'Boss Cutscene'
+        ☐ Attack pattern 1
+        ☐ Attack pattern 2
+        ☐ Jump Attack
+        ☐ Damage Animation
+        ☐ Death Animation
+
+Level 1 Stage Art:
+    This list will be populated as more ideas and objects become necessary to make the stage feel complete
+        ☐ Stage 1 Background
+            Stage 1 is outdoors between the Gate and the entrance to the Manor, should be very green and organic
+        Foreground:
+            ☐ Tall Grass
+            ☐ Archway
+        Background:
+            ☐ Brick Wall
+            ☐ Hedge
+            ☐ Tree
+            ☐ Rocks
+            ☐ Statue
+            ☐ Torches (breakable)
+        Collison:
+            ☐ Grass Pathway
+            ☐ Concrete Pathway
+            ☐ Brick Pathway
+        Hazards:
+            ☐ Water Pit
+
+Enemie Art and Design:
+    ☐ Cultist
+    ☐ Wolf
+    ☐ Fish Person
+    ☐ Bat/Bird
+
+Item Drops:
+    Sub-Weapons:
+        ☐ Cross (boomerang)
+        ☐ Dagger (straight shot)
+        ☐ Fire Bomb (DoT)
+        ☐ Axe (Arc)
+        ☐ Stopwatch (Freeze Enemies)
+
+    Power Ups:
+        ☐ Range Extender
+        ☐ Double Shot
+        ☐ Triple Shot
+        ☐ Invincibility
+        ☐ Screen Wipe
+    
+    ☐ Point Drops
+    ☐ Ammo Drops
