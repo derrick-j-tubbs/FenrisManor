@@ -9,17 +9,20 @@ Izabell Sprite Art and Animation:
     Shapes will be heavily influenced by Simon Belmont from Casltevania ( https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png )
         ✔ Walk Cycle @done(19-01-17 00:51)
             This cycle took the most time because I had to settle upon a general size for the sprite to be. This took a lot of trial and error and resulted in several discarded WIP pieces. These pieces though will be useful for showing a step-by-step guide to how I settled upon the aesthetic for the game. 
-        ☐ Idle Position (Low Priority)
-            There are two options for this, it can be a unique position that leads into all of the others through the first frame of the walk cycle, or it can just be the first frame of the walk cycle. This is a low priority asset, and likely will just be canceled in the future
-        ☐ Crouch Position
+        ✔ Crouch Position @done(19-01-17 22:12)
             This position should also have an animation for attacking.
-        ☐ Jump Animation
+        ✔ Stair Climb @started(19-01-17 23:45) @done(19-01-18 00:31) @lasted(46m53s)
+            This position should allow you to attack, climb and descend stairs. This position consists of 2 new frames [one for up and one for down] and one for the leg cross from the original walk cycle.
+        ✘ Jump Animation @cancelled(19-01-17 22:12)
+            Turns out the jump animation is just a combination of the first frame of the walk cycle [up to a certain height] and the crouch position [to peak and back to the original height]. This means this is effectively done since the Walk Cycle and Couch Position are done.
     Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
         ☐ Attack Animation
-            Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position, but not the jump position
+            Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position.
             ☐ Weapon Animation
         ☐ Damage Animation (Mid Priority)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
+        ☐ Idle Position (Low Priority)
+            There are two options for this, it can be a unique position that leads into all of the others through the first frame of the walk cycle, or it can just be the first frame of the walk cycle. This is a low priority asset, and likely will just be canceled in the future
         ☐ Death Animation (Low Priority)
             Not mandatory, but will play when the player takes enough damage to die.
     
@@ -53,7 +56,8 @@ Level 1 Stage Art:
         Hazards:
             ☐ Water Pit
 
-Enemie Art and Design:
+Enemy Art and Design:
+    The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
     ☐ Cultist
     ☐ Wolf
     ☐ Fish Person
