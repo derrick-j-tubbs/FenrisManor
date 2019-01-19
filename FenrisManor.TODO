@@ -16,14 +16,19 @@ Izabell Sprite Art and Animation:
         ✘ Jump Animation @cancelled(19-01-17 22:12)
             Turns out the jump animation is just a combination of the first frame of the walk cycle [up to a certain height] and the crouch position [to peak and back to the original height]. This means this is effectively done since the Walk Cycle and Couch Position are done.
     Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
-        ☐ Attack Animation
+        Attack Animation:
             Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position.
-            ☐ Weapon Animation
-        ☐ Damage Animation (Mid Priority)
+            ✔ Standing Attack @done(19-01-18 17:10)
+            ✔ Up Stair Attack @done(19-01-18 18:37)
+            ✔ Down Stair Attack @done(19-01-18 18:37)
+            ✔ Crouch Attack @done(19-01-18 18:58)
+        ☐ Weapon Animation
+        ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
-        ☐ Idle Position (Low Priority)
+        ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
+            This has been deemed to be unnecessary and has been canceled to progress further.
             There are two options for this, it can be a unique position that leads into all of the others through the first frame of the walk cycle, or it can just be the first frame of the walk cycle. This is a low priority asset, and likely will just be canceled in the future
-        ☐ Death Animation (Low Priority)
+        ✔ Death Animation (Low Priority) @started(19-01-18 15:25) @done(19-01-18 15:36) @lasted(11m41s)
             Not mandatory, but will play when the player takes enough damage to die.
     
 Big Doggo Sprite Art and Animation:
