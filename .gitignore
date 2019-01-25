@@ -78,3 +78,6 @@ $RECYCLE.BIN/
 
 # Aseprite Files
 *.aseprite
+
+# Reference Images
+/*/*/ReferenceImages
