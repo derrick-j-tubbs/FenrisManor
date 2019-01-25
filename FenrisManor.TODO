@@ -33,6 +33,8 @@ Izabell Sprite Art and Animation:
     
 Big Doggo Sprite Art and Animation:
     More attack patterns may be added as necessary
+        ✔ Basic Sprite @started(19-01-23 20:48) @done(19-01-23 22:04) @lasted(1h16m38s)
+            ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
         ☐ 'Boss Cutscene'
         ☐ Attack pattern 1
         ☐ Attack pattern 2
@@ -64,7 +66,10 @@ Level 1 Stage Art:
 Enemy Art and Design:
     The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
     ☐ Cultist
-    ☐ Wolf
+    ✔ Wolf @done(19-01-24 15:40)
+        Initial design is done, just needs an idle animation and a movement animation
+        ☐ Idle Animation (wait until alert)
+        ☐ Move/Attack (alert state)
     ☐ Fish Person
     ☐ Bat/Bird
 
