@@ -80,4 +80,5 @@ $RECYCLE.BIN/
 *.aseprite
 
 # Reference Images
-/*/*/ReferenceImages
+/Sprites/Enemies/Bosses/*/ReferenceImages
+/Sprites/Player/*/ReferenceImages
