@@ -35,6 +35,8 @@ Big Doggo Sprite Art and Animation:
     More attack patterns may be added as necessary
         ✔ Basic Sprite @started(19-01-23 20:48) @done(19-01-23 22:04) @lasted(1h16m38s)
             ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
+            ✔ Walk Animation @done(19-01-25 23:27)
+                This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
         ☐ 'Boss Cutscene'
         ☐ Attack pattern 1
         ☐ Attack pattern 2
