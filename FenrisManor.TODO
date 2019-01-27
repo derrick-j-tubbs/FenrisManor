@@ -23,6 +23,7 @@ Izabell Sprite Art and Animation:
             ✔ Down Stair Attack @done(19-01-18 18:37)
             ✔ Crouch Attack @done(19-01-18 18:58)
         ☐ Weapon Animation
+            This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
         ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
         ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
@@ -38,11 +39,14 @@ Big Doggo Sprite Art and Animation:
             ✔ Walk Animation @done(19-01-25 23:27)
                 This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
         ☐ 'Boss Cutscene'
-        ☐ Attack pattern 1
-        ☐ Attack pattern 2
+        ✔ Attack pattern 1 @done(19-01-27 03:34)
+        ✘ Attack pattern 2 @cancelled(19-01-27 03:36)
+            This was canceled because it is the same as the Jump Attack task, if in the future more patterns are deemed necessary this might be restarted.
         ☐ Jump Attack
-        ☐ Damage Animation
-        ☐ Death Animation
+        ✘ Damage Animation @cancelled(19-01-27 03:34)
+            This animation isn't necessary, the enemy can just flash to show that it has taken damage and is currently invulnerable, or something similar. 
+        ✘ Death Animation @cancelled(19-01-27 03:35)
+            This animation is very low priority, and not necessary at all, the enemy can just despawn with a few generic 'explosions' when the boss dies.
 
 Level 1 Stage Art:
     This list will be populated as more ideas and objects become necessary to make the stage feel complete
