@@ -70,8 +70,8 @@ Enemy Art and Design:
     ☐ Cultist
     ✔ Wolf @done(19-01-24 15:40)
         Initial design is done, just needs an idle animation and a movement animation
-        ☐ Idle Animation (wait until alert)
-        ☐ Move/Attack (alert state)
+        ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
+        ✔ Move/Attack (alert state) @done(19-01-26 19:08)
     ☐ Fish Person
     ☐ Bat/Bird
 
