@@ -4,7 +4,18 @@
 'Alt+S' // Triggers `Todo: Toggle Start`
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
-Izabell Sprite Art and Animation:
+Jan 28 - Feb 2: 
+    Finish stage 1 art assets. [there's still a lot to do, but I've gotten much faster at this, so a week should be enough time]
+    Jan 28 Priorities:
+        ✔ Create jump animations for Big/Smol Doggos @started(19-01-28 16:21) @done(19-01-28 17:30) @lasted(1h9m31s)
+            Previous Task was only for Big Doggo, smol doggos will take a minor amount of editing to make it work
+            ✔ took a break from above @started(19-01-28 16:52) @done(19-01-28 17:22) @lasted(30m22s)
+        Finish stage 1 enemy design:   
+            ☐ Create base level sprites for cultist
+            ☐ Create base level sprites for bat/bird
+            ☐ Create base level sprites for fish person
+
+    Izabell Sprite Art and Animation:
     These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
     Shapes will be heavily influenced by Simon Belmont from Casltevania ( https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png )
         ✔ Walk Cycle @done(19-01-17 00:51)
@@ -22,8 +33,11 @@ Izabell Sprite Art and Animation:
             ✔ Up Stair Attack @done(19-01-18 18:37)
             ✔ Down Stair Attack @done(19-01-18 18:37)
             ✔ Crouch Attack @done(19-01-18 18:58)
-        ☐ Weapon Animation
+        Weapon Animation:
             This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
+            ☐ Short Attack
+            ☐ Mid Attack
+            ☐ Long Attack
         ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
         ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
@@ -32,67 +46,87 @@ Izabell Sprite Art and Animation:
         ✔ Death Animation (Low Priority) @started(19-01-18 15:25) @done(19-01-18 15:36) @lasted(11m41s)
             Not mandatory, but will play when the player takes enough damage to die.
     
-Big Doggo Sprite Art and Animation:
-    More attack patterns may be added as necessary
-        ✔ Basic Sprite @started(19-01-23 20:48) @done(19-01-23 22:04) @lasted(1h16m38s)
-            ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
-            ✔ Walk Animation @done(19-01-25 23:27)
-                This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
-        ☐ 'Boss Cutscene'
-        ✔ Attack pattern 1 @done(19-01-27 03:34)
-        ✘ Attack pattern 2 @cancelled(19-01-27 03:36)
-            This was canceled because it is the same as the Jump Attack task, if in the future more patterns are deemed necessary this might be restarted.
-        ☐ Jump Attack
-        ✘ Damage Animation @cancelled(19-01-27 03:34)
-            This animation isn't necessary, the enemy can just flash to show that it has taken damage and is currently invulnerable, or something similar. 
-        ✘ Death Animation @cancelled(19-01-27 03:35)
-            This animation is very low priority, and not necessary at all, the enemy can just despawn with a few generic 'explosions' when the boss dies.
+    Big Doggo Sprite Art and Animation:
+        More attack patterns may be added as necessary
+            ✔ Basic Sprite @started(19-01-23 20:48) @done(19-01-23 22:04) @lasted(1h16m38s)
+                ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
+                ✔ Walk Animation @done(19-01-25 23:27)
+                    This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
+            ☐ 'Boss Cutscene'
+                Make an extension of the standard idle animation for the regular doggos
+            ✔ Attack pattern 1 @done(19-01-27 03:34)
+            ✘ Attack pattern 2 @cancelled(19-01-27 03:36)
+                This was canceled because it is the same as the Jump Attack task, if in the future more patterns are deemed necessary this might be restarted.
+            ✔ Jump Attack @done(19-01-28 17:33)
+            ✘ Damage Animation @cancelled(19-01-27 03:34)
+                This animation isn't necessary, the enemy can just flash to show that it has taken damage and is currently invulnerable, or something similar. 
+            ✘ Death Animation @cancelled(19-01-27 03:35)
+                This animation is very low priority, and not necessary at all, the enemy can just despawn with a few generic 'explosions' when the boss dies.
 
-Level 1 Stage Art:
-    This list will be populated as more ideas and objects become necessary to make the stage feel complete
-        ☐ Stage 1 Background
-            Stage 1 is outdoors between the Gate and the entrance to the Manor, should be very green and organic
-        Foreground:
-            ☐ Tall Grass
-            ☐ Archway
-        Background:
-            ☐ Brick Wall
-            ☐ Hedge
-            ☐ Tree
-            ☐ Rocks
-            ☐ Statue
-            ☐ Torches (breakable)
-        Collison:
-            ☐ Grass Pathway
-            ☐ Concrete Pathway
-            ☐ Brick Pathway
-        Hazards:
-            ☐ Water Pit
+    Level 1 Stage Art:
+        This list will be populated as more ideas and objects become necessary to make the stage feel complete
+            ☐ Stage 1 Background
+                Stage 1 is outdoors between the Gate and the entrance to the Manor, should be very green and organic
+            Foreground:
+                ☐ Tall Grass
+                ☐ Archway
+            Background:
+                ☐ Brick Wall
+                ☐ Hedge
+                ☐ Tree
+                ☐ Rocks
+                ☐ Statue
+                ☐ Torches (breakable)
+            Collison:
+                ☐ Grass Pathway
+                ☐ Concrete Pathway
+                ☐ Brick Pathway
+            Hazards:
+                ☐ Water Pit
 
-Enemy Art and Design:
-    The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
-    ☐ Cultist
-    ✔ Wolf @done(19-01-24 15:40)
-        Initial design is done, just needs an idle animation and a movement animation
-        ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
-        ✔ Move/Attack (alert state) @done(19-01-26 19:08)
-    ☐ Fish Person
-    ☐ Bat/Bird
+    Enemy Art and Design:
+        The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
+        ☐ Cultist
+        ✔ Wolf @done(19-01-24 15:40)
+            Initial design is done, just needs an idle animation and a movement animation
+            ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
+            ✔ Move/Attack (alert state) @done(19-01-26 19:08)
+            ☐ Jump Animation (if above when alerted)
+        ☐ Fish Person
+        ☐ Bat/Bird
 
-Item Drops:
-    Sub-Weapons:
-        ☐ Cross (boomerang)
-        ☐ Dagger (straight shot)
-        ☐ Fire Bomb (DoT)
-        ☐ Axe (Arc)
-        ☐ Stopwatch (Freeze Enemies)
+    Item Drops:
+        Sub-Weapons:
+            ☐ Cross (boomerang)
+            ☐ Dagger (straight shot)
+            ☐ Fire Bomb (DoT)
+            ☐ Axe (Arc)
+            ☐ Stopwatch (Freeze Enemies)
 
-    Power Ups:
-        ☐ Range Extender
-        ☐ Double Shot
-        ☐ Triple Shot
-        ☐ Invincibility
-        ☐ Screen Wipe
-    
-    ☐ Point Drops
-    ☐ Ammo Drops
+        Power Ups:
+            ☐ Range Extender
+            ☐ Double Shot
+            ☐ Triple Shot
+            ☐ Invincibility
+            ☐ Screen Wipe
+        
+        ☐ Point Drops
+        ☐ Ammo Drops
+
+Feb 4 - 9:
+    Design/Build first stage, potentially start writing code for a movement controller and camera controller before the end of the week.
+
+Feb 11 - 16: 
+    (18-23) [this might take 2 weeks cuz this is the meat and potatoes of the game]
+    Finish writing code for movement controller/camera controller, make enemies react when seeing the player, give enemies and the player a health value, give weapons a damage value [for enemies their body is the weapon].
+
+Feb  18 - 23: 
+    (25 - Mar 2)
+    Work on music and sound effects, see if this is even something reasonable for me to do myself, or if I should release a demo without sound/music or with free sounds from other sources and add purchasing music and sound effects into the budget for the KickStarter plan.
+
+Mar 3 - 9 :
+    (at the latest)
+    Send demo builds to friends/other people interested in testing to find any bugs before a public release.
+
+Mar 11+: 
+    Build a website[should take about a day] and launch the demo, and potential KickStarter .
