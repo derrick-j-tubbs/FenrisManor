@@ -13,9 +13,30 @@ Jan 28 - Feb 2:
             ✔ Small dog animation completed @done(19-01-28 18:53)
         Finish stage 1 enemy design:   
             ✔ Create base level sprites for cultist @started(19-01-28 19:07) @done(19-01-28 19:51) @lasted(44m53s)
-                ✔ short break @started(19-01-28 19:37) @done(19-01-28 19:51) @lasted(14m15s)
+                ✔ short break @started(19-01-28 19:37) @done(19-01-28 19:47) @lasted(10m15s)
+                ✔ fully animated the cultist @done(19-01-29 00:54)
+                    There will defintely be more of these in the future, but they are easily modular, just swap in a new head and change skin tones to create a new one.
             ✔ Create base level sprites for bat/bird @done(19-01-28 20:33)
-            ☐ Create base level sprites for fish person
+                ✔ Fully animated the bat @done(19-01-28 22:11)
+                    Consider changing the colors of the bat in the future, or make multiple different variants. This version is very blue, perhaps should be grey isntead.
+            ✔ Create base level sprites for fish person @done(19-01-28 23:39)
+                 After some amount of experimentation I created an anthro crocodile, these enemies are stationary, so they need some sort of threatening looking animation. This started with no goal of where I was going. I created something funny, and eventually landed on something that fit for the creature I wanted. I'm really proud of what happened here.
+                 ✔ Completed animation of crocman @started(19-01-28 22:21) @done(19-01-28 23:40) @lasted(19m)
+    All of the self assigned tasks for January 28th have been completed at this point, some even further than originally intended. Work started ~4pm tody and finished around 11:30pm. I spent about 7.5 hours working on the project, however I had around 2-3 hours of breaks, and wasn't entirely focused on the project. I would say a solid 4-5 hours was actually spent working today. I'll spend the next bit figuring out what to do for tomorrow and potentially add the second frame of animation to the cultist.
+        Jan 29 Priorities: 
+            Conceptual Planning:
+                ☐ Determine if any sort of cutscene is needed for the 'big doggo' 
+                ☐ Determine if any sort of entry cutscene is necessary for the beginning of the game or whether this should be a stretch goal beyond completing the game
+            Asset Creation: 
+                ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
+                Priority Foreground Objects:
+                    ☐ Floor Tiles (probably concrete or wood)
+                    ☐ Water Pools
+                    ☐ Stairs (probably wood)
+                    ☐ Secondary Platforms (probably wood)
+
+
+
 
     Izabell Sprite Art and Animation:
     These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
