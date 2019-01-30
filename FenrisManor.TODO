@@ -23,24 +23,77 @@ Jan 28 - Feb 2:
                  After some amount of experimentation I created an anthro crocodile, these enemies are stationary, so they need some sort of threatening looking animation. This started with no goal of where I was going. I created something funny, and eventually landed on something that fit for the creature I wanted. I'm really proud of what happened here.
                  ✔ Completed animation of crocman @started(19-01-28 22:21) @done(19-01-28 23:40) @lasted(19m)
     All of the self assigned tasks for January 28th have been completed at this point, some even further than originally intended. Work started ~4pm tody and finished around 11:30pm. I spent about 7.5 hours working on the project, however I had around 2-3 hours of breaks, and wasn't entirely focused on the project. I would say a solid 4-5 hours was actually spent working today. I'll spend the next bit figuring out what to do for tomorrow and potentially add the second frame of animation to the cultist.
-        Jan 29 Priorities: 
-            Conceptual Planning:
-                ☐ Determine if any sort of cutscene is needed for the 'big doggo' 
-                ☐ Determine if any sort of entry cutscene is necessary for the beginning of the game or whether this should be a stretch goal beyond completing the game
-            Asset Creation: 
-                ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
-                Priority Foreground Objects:
-                    ☐ Floor Tiles (probably concrete or wood)
-                    ☐ Water Pools
-                    ☐ Stairs (probably wood)
-                    ☐ Secondary Platforms (probably wood)
+        
+    Jan 29 Priorities: 
+        Conceptual Planning:
+            ✔ Determine if any sort of cutscene is needed for the 'big doggo' @done(19-01-29 14:05)
+                To do this we are going to make a statue, and have the statue slowly come to live [shed the stone coloring, tthe sprite has been created "Big Doggo Statue" this statue can also be used as a background element in other stages as well or possibly early in the stage as an element of forshadowing
+                    ✔ Create the stone statue @done(19-01-29 14:06)
+            ✘ Determine if any sort of entry cutscene is necessary for the beginning of the game or whether this should be a stretch goal beyond completing the game @cancelled(19-01-29 15:06)
+                This can be a stretch goal, but isn't necessary for the demo or even for the regular game. Any story content will be added as a stretch goal beyond funding the title.
+                Asset Creation: 
+                    Priority Foreground Objects:
+                        ✔ Floor Tiles (probably concrete or wood) @done(19-01-29 19:20)
+                        This isn't finished entirely, but I'm going to call it done for today, I made good progress on an initial start with 4 different walkable tiles and 3 different wall tiles.
+                        
+                        Been throwing things at Aseprite on this for an hour and have created the following. Will continue after a short break.
+                        ✔ cleaning break @started(19-01-29 16:11) @done(19-01-29 16:25) @lasted(14m45s)
+                        ✔ Wood/Log floor tile @done(19-01-29 16:10)
+                        ✔ Grass Tile 1 (minecraftish) @done(19-01-29 16:10)
+                        ✔ Grass Tile 2 (Terrariaish) @done(19-01-29 16:10)
+                        ✔ Stone Tile @done(19-01-29 16:44)
+                        ✔ Grassy Stones @done(19-01-29 16:44)
+                            ✔ second break @started(19-01-29 16:45) @done(19-01-29 18:03) @lasted(1h18m36s)
+                            Determined that both walkable and solid blocks were required
+                            ✔ Solid Wood Block @done(19-01-29 19:07)
+                            ✔ Stairs (probably wood) @done(19-01-29 22:32)
+                            Mostly playing around with stairs trying to come up with a the correct size for the stairs to be so that the climbing animations work well.
+                            
+                        This turned into quite the task, many of the sprites needed pixels trimmed off of them to make them fit on any stair design that was reasonable. I have determined that a single stair should be 8x8 [or 1/2 of 1 block on each side] this lines up well with the fact that the space between the bottom and the raised foot of the climbing sprite is 8 pixels higher than the other.
+                        
+                        The re-trimming allowed me to make all the sprites have all sides be a multiple of 8. Unsure if this still helps with loading times, but it will definitely make things line up better as long as I maintain this discipline.
+                        ✔ Dinner Break @started(19-01-29 19:53) @done(19-01-29 20:18) @lasted(25m45s)
+        All tasks for January 29th have been either postponed or completed. I worked today from ~noon to 10pm with about 3.5 hours of breaks. While I didn't actually complete everything planned for today, I made a lot of good progress. I have enough now that I can start building a sample screen [just a few enemies and objects on a screen to help pull the aesthetic together] Which will be one of my tasks for tomorrow.
+        
+    Jan 30 Priorities: 
+        Build 2 sample screens [240x400]:
+            ☐ Sample Screen 1 Complete
+            ☐ Sample Screen 2 Complete
+                Requirements:
+                ☐ Include atleast 2 different enemies
+                ☐ Include Izabell [duh]
+                ☐ Include stairs up or down
+                ☐ Include solid blocks as well as walkables
+        Art assets for background objects:
+            Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
+            ☐ Brick Wall
+            ☐ Hedge
+            ☐ Tree
+            ☐ Rocks
+            ☐ Statue
+            ☐ Torches (breakable)
+        Time permitting I'll continue on to the next set of task, and work on either learning a tool or making ones I already have work.
+        ☐ Find a tool that allows for stage building. 
+            Not necessarily something in an Engine, but don't rule that out either. This might be the first point in this project where I launch Unity. Learn how to build a stage, and do the first mock up of the demo stage. This will help to ensure that nothing is missing from the list of todo items for the demo so that artwork is completely wrapped by the end of the week. 
+                [Note: I'm actualy a little ahead of schedule at this point, surprisingly. Animating went better than I expected for the previous models. I did postpone a few tasks from Tuesday, but that was simply because they logically didn't make sense to complete at the given time.]
 
-
-
-
+    Postponed Tasks:
+        ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
+            This will be easier once I have assembled an entire screen for the game, even if it's a basice one. I'm post-poning this until later in the week at a currently undecided time.
+        ☐ Water Pools
+            Also postponing this until I find a location that I will need to put water, so that I can then determine how I want to design it
+    
+    Late Phase 1 Tasks: 
+        ☐ Weapon Animations
+            I need to decide on the range and style of the weapon. At this point I'm probably going to stick to a generic whip, maybe a morningstar or similar for the extended version, could just be a longer whip.
+                            
+    Stretch Goal Ideas:
+        ☐ Opening/Ending Cinematic
+        ☐ Actual story content
+                        
     Izabell Sprite Art and Animation:
-    These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
-    Shapes will be heavily influenced by Simon Belmont from Casltevania ( https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png )
+        These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
+        Shapes will be heavily influenced by Simon Belmont from Casltevania https://cdn.discordapp.com/attachments/523288534711402506/534782332968632320/post-10601-1222449014.png
         ✔ Walk Cycle @done(19-01-17 00:51)
             This cycle took the most time because I had to settle upon a general size for the sprite to be. This took a lot of trial and error and resulted in several discarded WIP pieces. These pieces though will be useful for showing a step-by-step guide to how I settled upon the aesthetic for the game. 
         ✔ Crouch Position @done(19-01-17 22:12)
@@ -49,18 +102,18 @@ Jan 28 - Feb 2:
             This position should allow you to attack, climb and descend stairs. This position consists of 2 new frames [one for up and one for down] and one for the leg cross from the original walk cycle.
         ✘ Jump Animation @cancelled(19-01-17 22:12)
             Turns out the jump animation is just a combination of the first frame of the walk cycle [up to a certain height] and the crouch position [to peak and back to the original height]. This means this is effectively done since the Walk Cycle and Couch Position are done.
-    Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
+        Finalize the weapon design so that you can animate it, it's likely going to just be a whip at this point, just for simplicity sake.
         Attack Animation:
             Both with and without the weapon drawn so that multiple weapons can be created instead of just one. Should also function for the crouched position.
             ✔ Standing Attack @done(19-01-18 17:10)
             ✔ Up Stair Attack @done(19-01-18 18:37)
             ✔ Down Stair Attack @done(19-01-18 18:37)
             ✔ Crouch Attack @done(19-01-18 18:58)
-        Weapon Animation:
-            This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
-            ☐ Short Attack
-            ☐ Mid Attack
-            ☐ Long Attack
+            Weapon Animation:
+                This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
+                ☐ Short Attack
+                ☐ Mid Attack
+                ☐ Long Attack
         ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
         ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
@@ -75,7 +128,7 @@ Jan 28 - Feb 2:
                 ✔ Add texture and detail to the baseline @done(19-01-24 22:54)
                 ✔ Walk Animation @done(19-01-25 23:27)
                     This is potentially the same as the first attack pattern, but until I decide for sure, I'm going to leave them as a separate task
-            ☐ 'Boss Cutscene'
+            ✔ 'Boss Cutscene' @done(19-01-29 22:50)
                 Make an extension of the standard idle animation for the regular doggos
             ✔ Attack pattern 1 @done(19-01-27 03:34)
             ✘ Attack pattern 2 @cancelled(19-01-27 03:36)
@@ -93,6 +146,7 @@ Jan 28 - Feb 2:
             Foreground:
                 ☐ Tall Grass
                 ☐ Archway
+                ☐ Marble Pillar
             Background:
                 ☐ Brick Wall
                 ☐ Hedge
@@ -101,22 +155,25 @@ Jan 28 - Feb 2:
                 ☐ Statue
                 ☐ Torches (breakable)
             Collison:
-                ☐ Grass Pathway
-                ☐ Concrete Pathway
+                ✔ Grass Pathway @done(19-01-29 22:40)
+                ✔ Concrete Pathway @done(19-01-29 22:40)
+                ✔ Wood Stairs @done(19-01-29 22:41)
+                ✔ Wood Walkway @done(19-01-29 22:41)
                 ☐ Brick Pathway
             Hazards:
                 ☐ Water Pit
 
     Enemy Art and Design:
         The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
-        ☐ Cultist
+        ✔ Cultist @done(19-01-29 22:41)
+            ☐ Move/Attack animation (finalize this)
         ✔ Wolf @done(19-01-24 15:40)
             Initial design is done, just needs an idle animation and a movement animation
             ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
             ✔ Move/Attack (alert state) @done(19-01-26 19:08)
-            ☐ Jump Animation (if above when alerted)
-        ☐ Fish Person
-        ☐ Bat/Bird
+            ✔ Jump Animation (if above when alerted) @done(19-01-29 22:42)
+        ✔ Fish Person @done(19-01-29 22:42) (Croc man) (is finalized)
+        ✔ Bat/Bird @done(19-01-29 22:42) (Bat) (is finalized)
 
     Item Drops:
         Sub-Weapons:
