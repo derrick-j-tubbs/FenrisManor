@@ -66,19 +66,28 @@ Jan 28 - Feb 2:
                 ✔ Include Izabell [duh] @done(19-01-30 17:50)
                 ✔ Include stairs up or down @done(19-01-30 17:50)
                 ✔ Include solid blocks as well as walkables @done(19-01-30 17:50)
-        Art assets for background objects:
-            Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
-            ☐ Brick Wall
-            ☐ Hedge
-            ☐ Tree
-            ☐ Rocks
-            ☐ Statue
-            ☐ Torches (breakable)
         Time permitting I'll continue on to the next set of task, and work on either learning a tool or making ones I already have work.
-        ☐ Find a tool that allows for stage building. 
+        ✔ Find a tool that allows for stage building. @done(19-01-31 01:39)
+            I found a tool called Tiled, that can export stages to Unity and has an easy tool allowing you to use brushes to place tiles and enemies. It's really easy to use, and has a lot of resources and has it's own forums if I need help. I should look more into it's licensing and whether it aligns with my goals for this project. I can alway look at the open source project and use it as a guide to build my own tool, which I know would work perfectly for everything I wanted it to.
+
+            Unity also has it's own tools and tutorials on how to use them, I may explore those also. 
+            
+            I need to learn how to build a sprite sheet so that it's easier to import into another level editors
+
             Not necessarily something in an Engine, but don't rule that out either. This might be the first point in this project where I launch Unity. Learn how to build a stage, and do the first mock up of the demo stage. This will help to ensure that nothing is missing from the list of todo items for the demo so that artwork is completely wrapped by the end of the week. 
                 [Note: I'm actualy a little ahead of schedule at this point, surprisingly. Animating went better than I expected for the previous models. I did postpone a few tasks from Tuesday, but that was simply because they logically didn't make sense to complete at the given time.]
+        I didn't get nearly as much done today as I wanted to, but anxiety is a bitch and as a result it hampered my creativity and my drive to work.
 
+    Jan 31 Priorities: 
+        May take the day off but if not, these will be the tasks for today, since I didn't do them yesterday.
+        Art assets for background objects:
+        Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
+        ☐ Brick Wall
+        ☐ Hedge
+        ☐ Tree
+        ☐ Rocks
+        ☐ Statue
+        ☐ Torches (breakable)
     Postponed Tasks:
         ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
             This will be easier once I have assembled an entire screen for the game, even if it's a basice one. I'm post-poning this until later in the week at a currently undecided time.
