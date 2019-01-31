@@ -56,14 +56,16 @@ Jan 28 - Feb 2:
         All tasks for January 29th have been either postponed or completed. I worked today from ~noon to 10pm with about 3.5 hours of breaks. While I didn't actually complete everything planned for today, I made a lot of good progress. I have enough now that I can start building a sample screen [just a few enemies and objects on a screen to help pull the aesthetic together] Which will be one of my tasks for tomorrow.
         
     Jan 30 Priorities: 
+        *BIG NOTE!* For some reason a lot of sprites didn't export right, the bat for example has a bunch of random artifacts when it's imported back into aseprite from the PNG files. The ones I've noticed this from so far are the Cultist, Small Wolves, and Bat. Seems to be true for all sprites that aren't tiles for some reason, will investigate later.
+        *Work Around* Open the PNG in Aseprite, copy and paste from there.
         Build 2 sample screens [240x400]:
-            ☐ Sample Screen 1 Complete
+            ✔ Sample Screen 1 Complete @done(19-01-30 17:50)
             ☐ Sample Screen 2 Complete
                 Requirements:
-                ☐ Include atleast 2 different enemies
-                ☐ Include Izabell [duh]
-                ☐ Include stairs up or down
-                ☐ Include solid blocks as well as walkables
+                ✔ Include atleast 2 different enemies @done(19-01-30 17:50)
+                ✔ Include Izabell [duh] @done(19-01-30 17:50)
+                ✔ Include stairs up or down @done(19-01-30 17:50)
+                ✔ Include solid blocks as well as walkables @done(19-01-30 17:50)
         Art assets for background objects:
             Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
             ☐ Brick Wall
