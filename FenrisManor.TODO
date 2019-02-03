@@ -82,11 +82,16 @@ Jan 28 - Feb 2:
         May take the day off but if not, these will be the tasks for today, since I didn't do them yesterday.
         Art assets for background objects:
         Top Priority object in this group is torches, and something to place them on outside, this can be a hedge, tree, or statue base. Second priroty objects in this group are obviously hedges, trees, a statue. [perhaps use the cultist or Izabell as a design reference, probably 48x16 or 64x16] The remaining items are low priority. This should be designed after Sample Screen 1 is completed, based on what I feel those need and what would feel correct within them. I wouldn't expect each of these objects to take very long, there are also plenty of reference objects available online if I get stuck.
-        ☐ Brick Wall
-        ☐ Hedge
-        ☐ Tree
-        ☐ Rocks
+        ✘ Brick Wall @cancelled(19-02-02 19:53)
+        ✔ Hedge @done(19-02-02 16:37)
+            
+        ✔ Tree @done(19-02-02 18:00)
+            ☐ Consider making this bigger in the future or multiple different trees to reduce repetitiveness
+        ✔ Wooden support beam for stairs @done(19-02-02 17:53)
+            make this stackable for any height, 2 pieces probably 1 for base and another for the 
+        ✘ Rocks @cancelled(19-02-02 19:53)
         ☐ Statue
+        ☐ Stone Pillar
         ☐ Torches (breakable)
     Postponed Tasks:
         ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
@@ -221,3 +226,6 @@ Mar 3 - 9 :
 
 Mar 11+: 
     Build a website[should take about a day] and launch the demo, and potential KickStarter .
+
+FUTURE ME:
+    ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
