@@ -86,15 +86,17 @@ Jan 28 - Feb 2:
         ✔ Hedge @done(19-02-02 16:37)
             
         ✔ Tree @done(19-02-02 18:00)
-            ☐ Consider making this bigger in the future or multiple different trees to reduce repetitiveness
+            ✘ Consider making this bigger in the future or multiple different trees to reduce repetitiveness @cancelled(19-02-05 21:52)
         ✔ Wooden support beam for stairs @done(19-02-02 17:53)
             make this stackable for any height, 2 pieces probably 1 for base and another for the 
         ✘ Rocks @cancelled(19-02-02 19:53)
-        ☐ Statue
-        ☐ Stone Pillar
+        ✘ Statue @cancelled(19-02-05 21:52)
+        ✔ Stone Pillar @done(19-02-05 21:49)
+        ✔ Stone Stairs @done(19-02-05 21:49)
         ☐ Torches (breakable)
+            ✔ A tentative version of this is done, but might be finalized soon @done(19-02-05 21:53)
     Postponed Tasks:
-        ☐ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created
+        ✔ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created @done(19-02-05 21:50)
             This will be easier once I have assembled an entire screen for the game, even if it's a basice one. I'm post-poning this until later in the week at a currently undecided time.
         ☐ Water Pools
             Also postponing this until I find a location that I will need to put water, so that I can then determine how I want to design it
