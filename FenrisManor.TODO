@@ -60,7 +60,7 @@ Jan 28 - Feb 2:
         *Work Around* Open the PNG in Aseprite, copy and paste from there.
         Build 2 sample screens [240x400]:
             ✔ Sample Screen 1 Complete @done(19-01-30 17:50)
-            ☐ Sample Screen 2 Complete
+            ✔ Sample Screen 2 Complete @done(19-02-09 20:36)
                 Requirements:
                 ✔ Include atleast 2 different enemies @done(19-01-30 17:50)
                 ✔ Include Izabell [duh] @done(19-01-30 17:50)
@@ -93,16 +93,16 @@ Jan 28 - Feb 2:
         ✘ Statue @cancelled(19-02-05 21:52)
         ✔ Stone Pillar @done(19-02-05 21:49)
         ✔ Stone Stairs @done(19-02-05 21:49)
-        ☐ Torches (breakable)
+        ✔ Torches (breakable) @done(19-02-07 21:20)
             ✔ A tentative version of this is done, but might be finalized soon @done(19-02-05 21:53)
     Postponed Tasks:
         ✔ Begin working on the background, something paralax and easy to create, not necessarily something to finish. Might be easier once forground objects or created @done(19-02-05 21:50)
             This will be easier once I have assembled an entire screen for the game, even if it's a basice one. I'm post-poning this until later in the week at a currently undecided time.
-        ☐ Water Pools
+        ✔ Water Pools @done(19-02-07 21:43)
             Also postponing this until I find a location that I will need to put water, so that I can then determine how I want to design it
     
     Late Phase 1 Tasks: 
-        ☐ Weapon Animations
+        ✔ Weapon Animations @done(19-02-09 20:36)
             I need to decide on the range and style of the weapon. At this point I'm probably going to stick to a generic whip, maybe a morningstar or similar for the extended version, could just be a longer whip.
                             
     Stretch Goal Ideas:
@@ -129,9 +129,10 @@ Jan 28 - Feb 2:
             ✔ Crouch Attack @done(19-01-18 18:58)
             Weapon Animation:
                 This animation needs to match up with the generic attack pattern animation; however it should be simple and doesn't require much effort. There will be 3 different variations of this attack based on the maximum length of the weapon.
-                ☐ Short Attack
-                ☐ Mid Attack
-                ☐ Long Attack
+                ✔ Short Attack @done(19-02-09 20:36)
+                ✔ Mid Attack @done(19-02-09 20:36)
+                ✔ Long Attack @done(19-02-09 20:36)
+                    ✔ Upgraded version of the previous @done(19-02-09 20:36)
         ✔ Damage Animation (Mid Priority) @done(19-01-18 15:25)
             This animation will happen whenever the player is hit and will cause them to recoil backwards a bit. This is medium priority for the sake of getting the demo together. It's not mandatory for the game to work, but it'll help make sense.
         ✘ Idle Position (Low Priority) @cancelled(19-01-18 18:37)
@@ -159,32 +160,32 @@ Jan 28 - Feb 2:
 
     Level 1 Stage Art:
         This list will be populated as more ideas and objects become necessary to make the stage feel complete
-            ☐ Stage 1 Background
+            ✔ Stage 1 Background @done(19-02-07 21:44)
                 Stage 1 is outdoors between the Gate and the entrance to the Manor, should be very green and organic
             Foreground:
-                ☐ Tall Grass
-                ☐ Archway
-                ☐ Marble Pillar
+                ✘ Tall Grass @cancelled(19-02-07 21:44)
+                ✘ Archway @cancelled(19-02-07 21:44)
+                ✘ Marble Pillar @cancelled(19-02-07 21:44)
             Background:
-                ☐ Brick Wall
-                ☐ Hedge
-                ☐ Tree
-                ☐ Rocks
-                ☐ Statue
-                ☐ Torches (breakable)
+                ✘ Brick Wall @cancelled(19-02-07 21:44)
+                ✔ Hedge @done(19-02-07 21:44)
+                ✔ Tree @done(19-02-07 21:44)
+                ✘ Rocks @cancelled(19-02-07 21:44)
+                ✘ Statue @cancelled(19-02-07 21:44)
+                ✔ Torches (breakable) @done(19-02-07 21:44)
             Collison:
                 ✔ Grass Pathway @done(19-01-29 22:40)
                 ✔ Concrete Pathway @done(19-01-29 22:40)
                 ✔ Wood Stairs @done(19-01-29 22:41)
                 ✔ Wood Walkway @done(19-01-29 22:41)
-                ☐ Brick Pathway
+                ✘ Brick Pathway @cancelled(19-02-07 21:44)
             Hazards:
-                ☐ Water Pit
+                ✔ Water Pit @done(19-02-07 21:44)
 
     Enemy Art and Design:
         The enemies in this game will be inspired primarily by Castlevania 1. A sprite sheet with all the enemies in the original game is available here: https://cdn.discordapp.com/attachments/523288534711402506/535360611278651422/2ffcc62f67a2bf55eff5646481722e62.png
         ✔ Cultist @done(19-01-29 22:41)
-            ☐ Move/Attack animation (finalize this)
+            ✔ Move/Attack animation (finalize this) @done(19-02-07 21:44)
         ✔ Wolf @done(19-01-24 15:40)
             Initial design is done, just needs an idle animation and a movement animation
             ✔ Idle Animation (wait until alert) @done(19-01-26 19:29)
@@ -196,20 +197,46 @@ Jan 28 - Feb 2:
     Item Drops:
         Sub-Weapons:
             ☐ Cross (boomerang)
-            ☐ Dagger (straight shot)
+                ☐ Item Drop
+                ☐ Attack Animation
+            ☐ Crossbow
+                ☐ Item Drop
+                ☐ Attack Animation
+            ☐ Magic Missle
+                ☐ Item Drop
+                ☐ Attack Animation
             ☐ Fire Bomb (DoT)
+                ☐ Item Drop
+                ☐ Attack Animation
+                ☐ DoT Animation
             ☐ Axe (Arc)
+                ☐ Item Drop
+                ☐ Attack Animation
             ☐ Stopwatch (Freeze Enemies)
+                ☐ Item Drop
 
         Power Ups:
             ☐ Range Extender
-            ☐ Double Shot
-            ☐ Triple Shot
+                This will also increase the damage of the base weapon, not just the range making it deal more damage to bosses and large enemies.
+                ☐ Whip +
+                ☐ Whip ++
+            ☐ Double Shot / Triple Shot
+                These will both be animated versions of the subweapons.
+                Double Shot will have a + and Triple Shot will have ++
             ☐ Invincibility
+                Will cause character to change between two different color pallets, should be easy to execute with some sort of color overlay effect. Option to instead make the character appear invisible instead once every few frames
             ☐ Screen Wipe
+                Will cause a screen flash.
         
         ☐ Point Drops
+            ☐ 100
+            ☐ 250
+            ☐ 500
+            ☐ 1000
         ☐ Ammo Drops
+            ☐ Single
+            ☐ 5x
+            ☐ Max Ammo
 
 Feb 4 - 9:
     Design/Build first stage, potentially start writing code for a movement controller and camera controller before the end of the week.
@@ -231,3 +258,4 @@ Mar 11+:
 
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
+    ☐ How to make an image BW except 1 color (https://enviragallery.com/how-to-make-a-photo-bw-except-one-color-in-photoshop/)
