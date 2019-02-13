@@ -104,10 +104,6 @@ Jan 28 - Feb 2:
     Late Phase 1 Tasks: 
         ✔ Weapon Animations @done(19-02-09 20:36)
             I need to decide on the range and style of the weapon. At this point I'm probably going to stick to a generic whip, maybe a morningstar or similar for the extended version, could just be a longer whip.
-                            
-    Stretch Goal Ideas:
-        ☐ Opening/Ending Cinematic
-        ☐ Actual story content
                         
     Izabell Sprite Art and Animation:
         These are priority one, and should be the first set of animations and sprites completed for the game as they will help determine the aesthetic for the levels and design of the stages.
@@ -196,44 +192,53 @@ Jan 28 - Feb 2:
 
     Item Drops:
         Sub-Weapons:
-            ☐ Cross (boomerang)
-                ☐ Item Drop
+        Double Shot / Triple Shot
+        These will both be static versions of the current subweapon. Double Shot will have a + and Triple Shot will have ++. These powerups will vanish when you change sub weapons.
+            Lightning:
+                Lightning will hit the 3 tiles in front of you and attack enemies between you and it initially. 
+                Double shot it will arc forward to aditional enemies
+                Triple shot it will arc forward and backward to even more additional enemies
+                ✔ Item Drop @done(19-02-11 18:29)
                 ☐ Attack Animation
-            ☐ Crossbow
-                ☐ Item Drop
+                ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+            Icicle:
+                ✔ Item Drop @done(19-02-12 21:41)
                 ☐ Attack Animation
-            ☐ Magic Missle
-                ☐ Item Drop
+                ✔ Double Shot / Triple Shot @done(19-02-12 21:45)
+            Magic Missle:
+                ✔ Item Drop @done(19-02-12 21:41)
                 ☐ Attack Animation
-            ☐ Fire Bomb (DoT)
-                ☐ Item Drop
+                ✔ Double Shot / wTriple Shot @done(19-02-12 21:45)
+            Fire Bomb (DoT):
+                ✔ Item Drop @done(19-02-12 21:41)
                 ☐ Attack Animation
                 ☐ DoT Animation
-            ☐ Axe (Arc)
-                ☐ Item Drop
+                ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+            Tornado:
+                Acts like a boomerang, fires forward and then returns back to the user. If the users dodges it, it travels back to the opposite edge of the screen.
+                ✔ Item Drop @done(19-02-11 21:16)
                 ☐ Attack Animation
-            ☐ Stopwatch (Freeze Enemies)
-                ☐ Item Drop
+                ✔ Double Shot / Triple Shot @done(19-02-12 21:53)
+
 
         Power Ups:
-            ☐ Range Extender
-                This will also increase the damage of the base weapon, not just the range making it deal more damage to bosses and large enemies.
-                ☐ Whip +
-                ☐ Whip ++
-            ☐ Double Shot / Triple Shot
-                These will both be animated versions of the subweapons.
-                Double Shot will have a + and Triple Shot will have ++
-            ☐ Invincibility
+            Range Extender:
+                This will also increase the damage of the base weapon, not just the range making it deal more damage.
+                ✔ Whip + @done(19-02-11 16:18)
+                ✔ Whip ++ @done(19-02-11 16:18)
+            Invincibility:
+                ✔ Item Drop @done(19-02-11 16:19)
                 Will cause character to change between two different color pallets, should be easy to execute with some sort of color overlay effect. Option to instead make the character appear invisible instead once every few frames
+                ☐ Effect animation
             ☐ Screen Wipe
                 Will cause a screen flash.
         
-        ☐ Point Drops
+        Point Drops:
             ☐ 100
             ☐ 250
             ☐ 500
             ☐ 1000
-        ☐ Ammo Drops
+        Ammo Drops:
             ☐ Single
             ☐ 5x
             ☐ Max Ammo
@@ -256,6 +261,12 @@ Mar 3 - 9 :
 Mar 11+: 
     Build a website[should take about a day] and launch the demo, and potential KickStarter .
 
+Stretch Goal Ideas:
+    ☐ Opening/Ending Cinematic
+    ☐ Actual story content
+
+
 FUTURE ME:
     ☐ Figure out how color multiply and other 'effects' actually work (https://en.wikipedia.org/wiki/Blend_modes#Multiply)
     ☐ How to make an image BW except 1 color (https://enviragallery.com/how-to-make-a-photo-bw-except-one-color-in-photoshop/)
+
