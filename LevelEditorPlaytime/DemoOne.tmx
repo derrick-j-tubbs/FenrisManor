@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="25" height="15" tilewidth="16" tileheight="16" infinite="1" nextlayerid="11" nextobjectid="1">
- <tileset firstgid="1" name="FenrisManor" tilewidth="48" tileheight="72" tilecount="71" columns="0">
+<map version="1.2" tiledversion="1.2.2" orientation="orthogonal" renderorder="right-down" width="25" height="15" tilewidth="16" tileheight="16" infinite="1" nextlayerid="12" nextobjectid="1">
+ <tileset firstgid="1" name="FenrisManor" tilewidth="48" tileheight="72" tilecount="79" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
    <image width="16" height="16" source="../Sprites/Tiles/Solid/SolidDirt.png"/>
@@ -421,8 +421,32 @@
   <tile id="82">
    <image width="16" height="16" source="../Sprites/Tiles/Hazards/WaterHazard2.png"/>
   </tile>
+  <tile id="83">
+   <image width="16" height="16" source="../Sprites/Items/Subweapon/lightning1.png"/>
+  </tile>
+  <tile id="84">
+   <image width="16" height="16" source="../Sprites/Items/Subweapon/Tornado1.png"/>
+  </tile>
+  <tile id="85">
+   <image width="16" height="16" source="../Sprites/Items/Power Ups/Range-Extender1.png"/>
+  </tile>
+  <tile id="86">
+   <image width="16" height="16" source="../Sprites/Items/Power Ups/Range-Extender2.png"/>
+  </tile>
+  <tile id="87">
+   <image width="16" height="16" source="../Sprites/Items/Power Ups/Invulnerability.png"/>
+  </tile>
+  <tile id="88">
+   <image width="16" height="16" source="../Sprites/Items/Subweapon/fireball1.png"/>
+  </tile>
+  <tile id="89">
+   <image width="16" height="16" source="../Sprites/Items/Subweapon/icicle1.png"/>
+  </tile>
+  <tile id="90">
+   <image width="16" height="16" source="../Sprites/Items/Subweapon/magic-missile1.png"/>
+  </tile>
  </tileset>
- <imagelayer id="6" name="Image Layer 1" offsetx="176" offsety="16">
+ <imagelayer id="6" name="Image Layer 1" offsetx="-224" offsety="16">
   <image source="../Sprites/Tiles/Paralax/Stage1.png" width="400" height="240"/>
  </imagelayer>
  <layer id="3" name="Background" width="25" height="15">
@@ -635,7 +659,7 @@
 </chunk>
   </data>
  </layer>
- <layer id="2" name="Sprites" width="25" height="15">
+ <layer id="2" name="Sprites" width="25" height="15" visible="0">
   <data encoding="csv">
    <chunk x="-16" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -670,6 +694,46 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,2147483687,0,2147483688,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
+ <layer id="11" name="Power Ups" width="25" height="15">
+  <data encoding="csv">
+   <chunk x="-16" y="0" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,84,0,85,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,86,0,0,0,85,0,84,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+   <chunk x="0" y="0" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,89,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,90,0,91,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
