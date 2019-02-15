@@ -4,7 +4,7 @@
 'Alt+S' // Triggers `Todo: Toggle Start`
 'Cmd/Ctrl+Shift+A' // Triggers  `Todo: Archive`
 
-Jan 28 - Feb 2: 
+Phase 1: Jan 28 - Feb 13: 
     Finish stage 1 art assets. [there's still a lot to do, but I've gotten much faster at this, so a week should be enough time]
     Jan 28 Priorities:
         ✔ Create jump animations for Big/Smol Doggos @started(19-01-28 16:21) @done(19-01-28 17:30) @lasted(1h9m31s)
@@ -243,22 +243,64 @@ Jan 28 - Feb 2:
             ☐ 5x
             ☐ Max Ammo
 
-Feb 4 - 9:
+Phase 1.5:
+    Things found in phase two that should've been done in phase one. Things that need to be done before phase 2 can continue.
+Phase 2: Feb 14 -??:
     Design/Build first stage, potentially start writing code for a movement controller and camera controller before the end of the week.
+    First Steps:
+        ☐ Gain a better understanding of Unity's Tilemap tool
+            ✔ Figure out how to make a prefab brush or other custom brush for objects larger that 1 tile @done(19-02-14 13:19)
+                This was actually as simple as dragging over the tiles you wanted to place, and placing them. It is unclear why this wasn't working last night, but it is now and that's what matters. If I encounter issues with this again, I'll look more into it.
+            ☐ Take extensive notes so that if you ever have a question again you can easily find the solution
+                ✔ Find a solution to why sprites bleed over into each other and cause issues with very colorful sprites @done(19-02-14 16:04)
+                    This was because the compression for the sprite sheet was set to normal instead of high quality. So it was compressing some colors together and leaving artifacts of some on the other.
+                ✔ Tile Pallet offset when importing a sliced spritesheet. @done(19-02-14 16:06)
+                    This was a result of setting the Pivot to something other than center in the Sprite Editor in this case (Top Left)
+            Build a stage strictly for testing with the following conditions:
+                ☐ At least 1 of each enemy type
+                    ☐ Small Dog
+                    ☐ Cultist
+                    ☐ Bat
+                    ☐ Crocman
+                ☐ Make a room for boss testing
+                ☐ Make a section that has each power-up and subweapon laying on the ground
+                ✔ Stairs up and down @done(19-02-14 16:44)
+                ☐ One or more room transitions
+                ✔ Candles placed, no logic yet @done(19-02-14 16:44)
+                    ☐ Candles with guaranteed drops
+                    ☐ Candles with random drops
+                ✔ Water Hazard @done(19-02-14 16:44)
+        ✔ Figure out how to convert Orthographic Camera size to pixel size ~[240x400] [15 tiles x 25 tiles] @done(19-02-14 13:19)
+            Camera Size = x / ((( x / y ) * 2 ) * s )
+            Where 
+            'x' = Screen Width (px) = 400
+            'y' = Screen Height (px) = 240
+            's' = Desired Height of Photoshop Square (px) = 16
+            400 / ((( 400 / 240) * 2 ) * 16 )=7.5
+            This doesn't allow pixel perfect control in both directions, but this is actually fine, I'd rather have a full 16:9 resolution witha few tiles overhanging on the sides than a non-true 16:9 resolution
+    Tomorrow [or Monday]:
+        Good movement is what makes a platformer into a platformer. This won't be an easy task and is going to take a lot of trial and error. Camera work /should/ be easy thanks to Cinemachine, but I need to figure out how exactly that works once I have a character moving.
+        ☐ Movement script so character can run and jump etc. (Don't worry about attacking or stairs yet)
+            ☐ Dial in jump height/gravity/move speed etc so that things feel right.
+        ☐ Figure out how to get cinemachine to work effectively
+            ☐ how to bind it to a certain area [so that doors function]
+            ☐ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages]
+            ☐ opposite of above
+        ☐ Make that movement script trigger animations when the character is running and jumping etc. (Don't worry about attacking or stairs yet)
 
-Feb 11 - 16: 
-    (18-23) [this might take 2 weeks cuz this is the meat and potatoes of the game]
+
+
+
+Phase 3: 
     Finish writing code for movement controller/camera controller, make enemies react when seeing the player, give enemies and the player a health value, give weapons a damage value [for enemies their body is the weapon].
 
-Feb  18 - 23: 
-    (25 - Mar 2)
+Phase 4: 
     Work on music and sound effects, see if this is even something reasonable for me to do myself, or if I should release a demo without sound/music or with free sounds from other sources and add purchasing music and sound effects into the budget for the KickStarter plan.
 
-Mar 3 - 9 :
-    (at the latest)
+Phase 5:
     Send demo builds to friends/other people interested in testing to find any bugs before a public release.
 
-Mar 11+: 
+Phase 6: 
     Build a website[should take about a day] and launch the demo, and potential KickStarter .
 
 Stretch Goal Ideas:
