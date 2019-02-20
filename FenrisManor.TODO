@@ -278,15 +278,19 @@ Phase 2: Feb 14 -??:
             's' = Desired Height of Photoshop Square (px) = 16
             400 / ((( 400 / 240) * 2 ) * 16 )=7.5
             This doesn't allow pixel perfect control in both directions, but this is actually fine, I'd rather have a full 16:9 resolution witha few tiles overhanging on the sides than a non-true 16:9 resolution
-    Tomorrow [or Monday]:
+    Tuesday:
         Good movement is what makes a platformer into a platformer. This won't be an easy task and is going to take a lot of trial and error. Camera work /should/ be easy thanks to Cinemachine, but I need to figure out how exactly that works once I have a character moving.
-        ☐ Movement script so character can run and jump etc. (Don't worry about attacking or stairs yet)
+        ✔ Follow https://unity3d.com/learn/tutorials/topics/2d-game-creation/scripting-collision?playlist=17093 tutorial to make a basic physics script/movement script.@created(19-02-19 17:43) @done(19-02-19 20:27)
+        ☐ Modify the basic physics/movement script to fit my project (only worry about moving and jumping for now, attacking and stairs come next) @created(19-02-19 17:44)
             ☐ Dial in jump height/gravity/move speed etc so that things feel right.
+        ☐ Make the above scripts trigger appropriate animations (Don't worry about attacking or stairs yet)
+           The above is going to need a second tutorial for how to setup the animator, however I understand how it works from a coding stand point, just need to learn the ins and outs of the animator class itself.
         ☐ Figure out how to get cinemachine to work effectively
             ☐ how to bind it to a certain area [so that doors function]
             ☐ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages]
             ☐ opposite of above
-        ☐ Make that movement script trigger animations when the character is running and jumping etc. (Don't worry about attacking or stairs yet)
+    Wednesday:
+        ☐ Update Game design document then work on any of the above tasks that aren't finished @created(19-02-19 17:46)
 
 
 
@@ -306,6 +310,9 @@ Phase 6:
 Stretch Goal Ideas:
     ☐ Opening/Ending Cinematic
     ☐ Actual story content
+
+Backer Incentive Idea:
+    ☐ Cultist Recolored in color scheme of your choice [make all cultists random]
 
 
 FUTURE ME:
