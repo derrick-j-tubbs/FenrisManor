@@ -12,6 +12,8 @@ public class PhysicsObject : MonoBehaviour
     protected bool isGrounded;
     protected Vector2 groundNormal;
 
+    // Values for player control and horizontal movement
+    protected Vector2 targetVelocity;   // Stores incoming input from outside of the class
 
     protected Rigidbody2D rbObject;     // Variable to hold the Rigidbody2D Component of the object being affected by phsyics
     protected Vector2 velocity;         // Variable to hold the Vector2 (x,y) velocity of the object
@@ -37,7 +39,14 @@ public class PhysicsObject : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        
+        //Zero out the target velocity so that you don't use the velocity from the previous frame.
+        targetVelocity = Vector2.zero;
+        ComputeVelocity();
+    }
+
+    // This will be overridden in PlayerPlatformerController.cs and used to calculate the new target velocity of our player object.
+    protected virtual void ComputeVelocity() {
+
     }
 
     // Use fixed update for physic
@@ -45,13 +54,24 @@ public class PhysicsObject : MonoBehaviour
         // Use the gravity modifier, default gravity value from Unity, and the time since the last frame to calculate the velocity vector for the current object
         velocity += (fGravityModifier * Physics2D.gravity * Time.deltaTime);
 
+        // Use target velocity from the external class and add it to our current x velocity to determine the new velocity
+        velocity.x = targetVelocity.x;
+
         isGrounded = false;
 
         // Use veloicty and time since last frame to calculate the change in position
         Vector2 deltaPostion = velocity * Time.deltaTime;
         
+        /* If using sloped tiles this is necessary to make sure your character walks up/down a slope instead of into a slope.
+         Since this game does not use slopes, I'm going to take this part of the calculation out, but leave it here just as a note */
+        //Vector2 followGround = new Vector2 (groundNormal.y, -groundNormal.x);
+
+        Vector2 move = Vector2.right * deltaPostion.x;
+
+        Movement(move, false);
+
         // Determine how much the object needs to move by using deltaPosition's y value
-        Vector2 move = Vector2.up * deltaPostion.y;
+        move = Vector2.up * deltaPostion.y;
 
         Movement(move, true);
     }
