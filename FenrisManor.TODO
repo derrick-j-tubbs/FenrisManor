@@ -248,10 +248,10 @@ Phase 1.5:
 Phase 2: Feb 14 -??:
     Design/Build first stage, potentially start writing code for a movement controller and camera controller before the end of the week.
     First Steps:
-        ☐ Gain a better understanding of Unity's Tilemap tool
+        ✔ Gain a better understanding of Unity's Tilemap tool @done(19-02-20 20:51)
             ✔ Figure out how to make a prefab brush or other custom brush for objects larger that 1 tile @done(19-02-14 13:19)
                 This was actually as simple as dragging over the tiles you wanted to place, and placing them. It is unclear why this wasn't working last night, but it is now and that's what matters. If I encounter issues with this again, I'll look more into it.
-            ☐ Take extensive notes so that if you ever have a question again you can easily find the solution
+            ✔ Take extensive notes so that if you ever have a question again you can easily find the solution @done(19-02-20 20:51)
                 ✔ Find a solution to why sprites bleed over into each other and cause issues with very colorful sprites @done(19-02-14 16:04)
                     This was because the compression for the sprite sheet was set to normal instead of high quality. So it was compressing some colors together and leaving artifacts of some on the other.
                 ✔ Tile Pallet offset when importing a sliced spritesheet. @done(19-02-14 16:06)
@@ -262,10 +262,10 @@ Phase 2: Feb 14 -??:
                     ☐ Cultist
                     ☐ Bat
                     ☐ Crocman
-                ☐ Make a room for boss testing
-                ☐ Make a section that has each power-up and subweapon laying on the ground
+                ✔ Make a room for boss testing @done(19-02-20 20:51)
+                ✔ Make a section that has each power-up and subweapon laying on the ground @done(19-02-20 20:51)
                 ✔ Stairs up and down @done(19-02-14 16:44)
-                ☐ One or more room transitions
+                ✔ One or more room transitions @done(19-02-20 20:51)
                 ✔ Candles placed, no logic yet @done(19-02-14 16:44)
                     ☐ Candles with guaranteed drops
                     ☐ Candles with random drops
@@ -283,14 +283,18 @@ Phase 2: Feb 14 -??:
         ✔ Follow https://unity3d.com/learn/tutorials/topics/2d-game-creation/scripting-collision?playlist=17093 tutorial to make a basic physics script/movement script.@created(19-02-19 17:43) @done(19-02-19 20:27)
         ☐ Modify the basic physics/movement script to fit my project (only worry about moving and jumping for now, attacking and stairs come next) @created(19-02-19 17:44)
             ☐ Dial in jump height/gravity/move speed etc so that things feel right.
-        ☐ Make the above scripts trigger appropriate animations (Don't worry about attacking or stairs yet)
+        ✔ Make the above scripts trigger appropriate animations (Don't worry about attacking or stairs yet) @done(19-02-20 20:52)
            The above is going to need a second tutorial for how to setup the animator, however I understand how it works from a coding stand point, just need to learn the ins and outs of the animator class itself.
-        ☐ Figure out how to get cinemachine to work effectively
-            ☐ how to bind it to a certain area [so that doors function]
-            ☐ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages]
-            ☐ opposite of above
-    Wednesday:
+            Note for hurt animation: when you get hit, apply a force [a vector away and up from where you're facing and then play the 'animation'] Instead of just trying to make the animation itself control your position.
+        ✔ Figure out how to get cinemachine to work effectively @done(19-02-20 20:52)
+            ✔ how to bind it to a certain area [so that doors function] @done(19-02-20 20:52)
+                ☐ Figure out how to make the camera switch to a new bound when a trigger is entered@created(19-02-20 20:52)
+            Both of these are done by adjusting the deadzones, this shouldn't be hard to control or hard to do
+            ✔ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages] @done(19-02-20 21:04)
+            ✔ opposite of above @done(19-02-20 21:04)
+    Thursday:
         ☐ Update Game design document then work on any of the above tasks that aren't finished @created(19-02-19 17:46)
+        ☐ If the above are all done, work on creating an attack animation @created(19-02-20 21:19)
 
 
 
