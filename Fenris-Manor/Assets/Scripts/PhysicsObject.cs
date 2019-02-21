@@ -42,10 +42,15 @@ public class PhysicsObject : MonoBehaviour
         //Zero out the target velocity so that you don't use the velocity from the previous frame.
         targetVelocity = Vector2.zero;
         ComputeVelocity();
+        AnimateActor();
     }
 
     // This will be overridden in PlayerPlatformerController.cs and used to calculate the new target velocity of our player object.
     protected virtual void ComputeVelocity() {
+
+    }
+
+    protected virtual void AnimateActor( ) {
 
     }
 

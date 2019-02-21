@@ -8,11 +8,36 @@ public class PlayerPlatformerController : PhysicsObject
     public float jumpTakeOffSpeed = 7;
 
     private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+    }
+
+    protected override void AnimateActor(){
+        Debug.Log("Player: " + velocity);
+        if(velocity.y != 0) {
+            if (velocity.y > 0) {
+                animator.Play("PlayerJumpUp");
+            }
+            else if(velocity.y < 0) {
+                animator.Play("PlayerJumpDown");
+            }
+        } else {
+            if (velocity.x != 0) {
+                animator.Play("PlayerWalk");
+                bool flipSprite = (spriteRenderer.flipX ? (velocity.x > 0.01f) : (velocity.x < 0.01f));
+
+                if (flipSprite) {
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
+            } else {
+                animator.Play("PlayerIdle");
+            }
+        }
     }
 
     protected override void ComputeVelocity(){
@@ -29,11 +54,6 @@ public class PlayerPlatformerController : PhysicsObject
             }
         }
 
-        bool flipSprite = (spriteRenderer.flipX ? (move.x > 0.01f) : (move.x < 0.01f));
-
-        if (flipSprite) {
-            spriteRenderer.flipX = !spriteRenderer.flipX;
-        }
         targetVelocity = move * maxSpeed;
 
     }
