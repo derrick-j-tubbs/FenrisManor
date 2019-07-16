@@ -281,14 +281,15 @@ Phase 2: Feb 14 -??:
     Tuesday:
         Good movement is what makes a platformer into a platformer. This won't be an easy task and is going to take a lot of trial and error. Camera work /should/ be easy thanks to Cinemachine, but I need to figure out how exactly that works once I have a character moving.
         ✔ Follow https://unity3d.com/learn/tutorials/topics/2d-game-creation/scripting-collision?playlist=17093 tutorial to make a basic physics script/movement script.@created(19-02-19 17:43) @done(19-02-19 20:27)
-        ☐ Modify the basic physics/movement script to fit my project (only worry about moving and jumping for now, attacking and stairs come next) @created(19-02-19 17:44)
-            ☐ Dial in jump height/gravity/move speed etc so that things feel right.
+        ✔ Modify the basic physics/movement script to fit my project (only worry about moving and jumping for now, attacking and stairs come next) @created(19-02-19 17:44) @done(19-07-16 02:12)
+            ✔ Dial in jump height/gravity/move speed etc so that things feel right. 
         ✔ Make the above scripts trigger appropriate animations (Don't worry about attacking or stairs yet) @done(19-02-20 20:52)
            The above is going to need a second tutorial for how to setup the animator, however I understand how it works from a coding stand point, just need to learn the ins and outs of the animator class itself.
             Note for hurt animation: when you get hit, apply a force [a vector away and up from where you're facing and then play the 'animation'] Instead of just trying to make the animation itself control your position.
         ✔ Figure out how to get cinemachine to work effectively @done(19-02-20 20:52)
             ✔ how to bind it to a certain area [so that doors function] @done(19-02-20 20:52)
                 ☐ Figure out how to make the camera switch to a new bound when a trigger is entered @created(19-02-20 20:52)
+                    Read https://www.reddit.com/r/Unity2D/comments/8wrjpy/unity2dim_trying_to_using_cinemachine_and_i_need/ and find resources from this
             Both of these are done by adjusting the deadzones, this shouldn't be hard to control or hard to do
             ✔ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages] @done(19-02-20 21:04)
             ✔ opposite of above @done(19-02-20 21:04)
@@ -296,7 +297,7 @@ Phase 2: Feb 14 -??:
         ✔ Update Game design document then work on any of the above tasks that aren't finished @created(19-02-19 17:46) @done(19-02-21 16:45)
         ☐ If the above are all done, work on making attacks work @created(19-02-20 21:19)
             This is going to be more complex than I thought for the system I was trying to use. The current system attempts to save memory on the spritesheet size by only having 1 set of attack animations and 1 set of weapon animations [4 animation sets (3 frames) with 2 weapons each [and an additional frame for the 2nd upgrade]] 28 sprites would be needed for this system 7 for each type of attack with 4 different attacks.
-            ☐ Make a new sprite sheet with these 28 attack frames properly rendered, this will be a much alrger sprite sheet, but will make animating attacks easier.@created(19-02-21 20:52)
+            ☐ Make a new sprite sheet with these 28 attack frames properly rendered, this will be a much larger sprite sheet, but will make animating attacks easier.@created(19-02-21 20:52)
             ☐ Make a note to come back to this later if desired so that this problem doesn't stonewall us now @created(19-02-21 20:53)
         ☐ Determine whether using the animation state machine is more efficient than writing one yourself. Writing one on your own will take time, but is likely going to be easier to understand and edit later. @created(19-02-21 20:53)
         ☐ Figure out how to make the player crouch @created(19-02-21 14:03)
