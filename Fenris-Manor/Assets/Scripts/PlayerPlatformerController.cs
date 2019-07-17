@@ -18,7 +18,6 @@ public class PlayerPlatformerController : PhysicsObject
     }
 
     protected override void AnimateActor(){
-        Debug.Log("Player: " + velocity);
         if(velocity.y != 0) {
             if (velocity.y > 0) {
                 animator.Play("PlayerJumpUp");
