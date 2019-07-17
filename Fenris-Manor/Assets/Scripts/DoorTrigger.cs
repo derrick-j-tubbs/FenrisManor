@@ -1,23 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class DoorTrigger : MonoBehaviour {
 
-    public GameObject initialCamera;
-    public GameObject finalCamera;
+    public CinemachineVirtualCamera initialCamera;
+    public CinemachineVirtualCamera finalCamera;
 
     public GameObject roomSpawnPoint;
+    private Collider2D _collision;
 
 	public void OnTriggerEnter2D(Collider2D collision)
     {
-        //print(collision.gameObject.tag);
+        _collision = collision;
         if (collision.gameObject.tag != "Player")
             return;
- 
-        initialCamera.gameObject.SetActive(false);
-        finalCamera.gameObject.SetActive(true);
-       
+
+        initialCamera.Priority = 0;
+        finalCamera.Priority = 1;
+        StartCoroutine(DisableControls());
+               
         collision.gameObject.transform.position = roomSpawnPoint.transform.position;
+    }
+
+    IEnumerator DisableControls() {
+        GameObject player = GameObject.Find("Player");
+        PlayerPlatformerController controller;
+        if (controller = player.GetComponent<PlayerPlatformerController>()) {
+            Debug.Log("Controls Off");
+            controller.enabled = false;
+            yield return new WaitForSeconds(1);
+            Debug.Log("Controls On");
+            controller.enabled = true;
+
+        }
     }
 }
