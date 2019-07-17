@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4664059999126974}
   - component: {fileID: 2569400265451858552}
   m_Layer: 31
-  m_Name: Terrain
+  m_Name: Terrain New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

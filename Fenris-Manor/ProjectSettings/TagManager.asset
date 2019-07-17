@@ -9,6 +9,7 @@ TagManager:
   - PlayerDrop
   - Breakables
   - Enemies
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Breakables
   - Stairs
   - Terrain
-  - 
+  - Trigger
   - 
   - 
   - 
