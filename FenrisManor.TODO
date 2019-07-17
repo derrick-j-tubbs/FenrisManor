@@ -291,19 +291,40 @@ Phase 2: Feb 14 -??:
             Note for hurt animation: when you get hit, apply a force [a vector away and up from where you're facing and then play the 'animation'] Instead of just trying to make the animation itself control your position.
         ✔ Figure out how to get cinemachine to work effectively @done(19-02-20 20:52)
             ✔ how to bind it to a certain area [so that doors function] @done(19-02-20 20:52)
-                ☐ Figure out how to make the camera switch to a new bound when a trigger is entered @created(19-02-20 20:52)
+                ✔ Figure out how to make the camera switch to a new bound when a trigger is entered @created(19-02-20 20:52) @done(19-07-17 01:24)
                     Read https://www.reddit.com/r/Unity2D/comments/8wrjpy/unity2dim_trying_to_using_cinemachine_and_i_need/ and find resources from this
-            Both of these are done by adjusting the deadzones, this shouldn't be hard to control or hard to do
+                    Both of these are done by adjusting the deadzones, this shouldn't be hard to control or hard to do
+
+                Door script has been created allowing me to define two rooms, a camera for each room and deactivate/reactivate cameras when entering a transition. This script also is currently handling the ability for a player to control Izabel during the transitions. The controls are being completely disabled. I will also need to figure out how to make all scripts wait for this transition so that enemies aren't moving/attacking while the camera is scrolling and the character is frozen.
+
+                This script also has an example of how to start a coroutine for anything that should run simultaneous to the update loop without being run every frame. This event would be placed in Start() if it would run for the whole game. [I.E. and overlay for loadless speedrun timing or the background clock for 'game time' if that is something we decide to include.] This can easily be called within other triggers for things like invincibility timing (by disabling damage taken for allies or enemies), cooldown on subweapons
+
             ✔ how to make it not follow the character vertically in horizontal stages [since the screen should be locked vertically in horiziontal stages] @done(19-02-20 21:04)
             ✔ opposite of above @done(19-02-20 21:04)
     Thursday:
         ✔ Update Game design document then work on any of the above tasks that aren't finished @created(19-02-19 17:46) @done(19-02-21 16:45)
         ☐ If the above are all done, work on making attacks work @created(19-02-20 21:19)
             This is going to be more complex than I thought for the system I was trying to use. The current system attempts to save memory on the spritesheet size by only having 1 set of attack animations and 1 set of weapon animations [4 animation sets (3 frames) with 2 weapons each [and an additional frame for the 2nd upgrade]] 28 sprites would be needed for this system 7 for each type of attack with 4 different attacks.
-            ☐ Make a new sprite sheet with these 28 attack frames properly rendered, this will be a much larger sprite sheet, but will make animating attacks easier.@created(19-02-21 20:52)
-            ☐ Make a note to come back to this later if desired so that this problem doesn't stonewall us now @created(19-02-21 20:53)
-        ☐ Determine whether using the animation state machine is more efficient than writing one yourself. Writing one on your own will take time, but is likely going to be easier to understand and edit later. @created(19-02-21 20:53)
+            ✔ Make a new sprite sheet with these 28 attack frames properly rendered, this will be a much larger sprite sheet, but will make animating attacks easier.@created(19-02-21 20:52) @done(19-07-17 01:21)
+            ✔ Make a note to come back to this later if desired so that this problem doesn't stonewall us now @created(19-02-21 20:53) @done(19-07-17 01:21)
+                Attacks are all animated, simply need to program the attack button to start the animation and determine how to control logic for weapon upgrades and hit boxes for attacks 
+        ✔ Determine whether using the animation state machine is more efficient than writing one yourself. Writing one on your own will take time, but is likely going to be easier to understand and edit later. @created(19-02-21 20:53) @done(19-07-17 01:22)
+            Now that I have a better understanding of how to use Unity's built in animator and animations, I feel that I can easily use it to create all the animations I need. I may revisit this later if I find that using logic to determine the animations is too difficult with the built in system. Although there is very little animation logic required int his game.
         ☐ Figure out how to make the player crouch @created(19-02-21 14:03)
+            Simply need to bind a crouch button and cause it to trigger a 'crouched' variable, similar to attacking, both of these should be easily achieved at the same time.
+
+    Next Steps:
+        ☐ Make it so that players can attack @created(19-07-17 01:57)
+            Create an attack button, and make the player animate with an attack
+            ☐ Also add a hit box to the attack animation so that the player can do damage @created(19-07-17 01:59)
+            ☐ Make candles breakable @created(19-07-17 02:00)
+                Don't worry about drop tables yet, that can come later.
+        ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
+            ☐ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00)
+        
+        These two steps will round out the majority of the player controller until we start dealing with sub attacks.
+
+        
 
 
 
