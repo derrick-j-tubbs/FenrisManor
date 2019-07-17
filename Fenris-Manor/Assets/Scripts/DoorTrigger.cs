@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour {
 
-	/* public void OnTriggerEnter2D(Collider2D collision)
+    public GameObject initialCamera;
+    public GameObject finalCamera;
+
+    public GameObject roomSpawnPoint;
+
+	public void OnTriggerEnter2D(Collider2D collision)
     {
         //print(collision.gameObject.tag);
         if (collision.gameObject.tag != "Player")
             return;
  
-        Messenger.Broadcast("roomChanged",roomName);
-        camera1.gameObject.SetActive(false);
-        camera2.gameObject.SetActive(true);
+        initialCamera.gameObject.SetActive(false);
+        finalCamera.gameObject.SetActive(true);
        
-        collision.gameObject.transform.position = whereToSpawn.transform.position;
-    } */
+        collision.gameObject.transform.position = roomSpawnPoint.transform.position;
+    }
 }

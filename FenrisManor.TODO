@@ -253,7 +253,10 @@ Phase 2: Feb 14 -??:
                 This was actually as simple as dragging over the tiles you wanted to place, and placing them. It is unclear why this wasn't working last night, but it is now and that's what matters. If I encounter issues with this again, I'll look more into it.
             ✔ Take extensive notes so that if you ever have a question again you can easily find the solution @done(19-02-20 20:51)
                 ✔ Find a solution to why sprites bleed over into each other and cause issues with very colorful sprites @done(19-02-14 16:04)
-                    This was because the compression for the sprite sheet was set to normal instead of high quality. So it was compressing some colors together and leaving artifacts of some on the other.
+                    This was because the compression for the sprite sheet was set to normal instead of high quality. So it was compressing some colors together and leaving artifacts of some on the other. (initail findings)
+
+                    Later I discovered this wasn't correct, instead of high quality, you should set compression to None. This means there is no filter ran over the top of your files. The bleeding and blurryness is a result of the GPU trying to speed up the process of importing the sprite. This is more noticable with things like the character sprite and larger items than it is with smaller items. 16-07-2019
+
                 ✔ Tile Pallet offset when importing a sliced spritesheet. @done(19-02-14 16:06)
                     This was a result of setting the Pivot to something other than center in the Sprite Editor in this case (Top Left)
             Build a stage strictly for testing with the following conditions:
