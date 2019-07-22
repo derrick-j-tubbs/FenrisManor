@@ -50,6 +50,7 @@ public class PlayerPlatformerController : PhysicsObject
         } else if (Input.GetButtonUp("Jump")){
             if (velocity.y > 0) {
                 velocity.y *= 0.5f;
+                move.x = move.x * 0.5f;
             }
         }
 
