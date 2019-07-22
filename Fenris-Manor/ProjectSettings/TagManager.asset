@@ -10,6 +10,7 @@ TagManager:
   - Breakables
   - Enemies
   - Trigger
+  - PlayerFeet
   layers:
   - Default
   - TransparentFX

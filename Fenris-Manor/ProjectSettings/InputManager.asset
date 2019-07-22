@@ -57,16 +57,16 @@ InputManager:
     m_Name: Climb
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: W
-    altNegativeButton: 
-    altPositiveButton: 
+    negativeButton: down
+    positiveButton: up
+    altNegativeButton: s
+    altPositiveButton: w
     gravity: 0
     dead: 0.19
     sensitivity: 1
-    snap: 0
+    snap: 1
     invert: 0
-    type: 2
+    type: 0
     axis: 0
     joyNum: 0
   - serializedVersion: 3
