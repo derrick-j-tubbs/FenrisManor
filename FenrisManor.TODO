@@ -326,6 +326,8 @@ Phase 2: Feb 14 -??:
 
         ✔ BUG: PlayerFeet hitbox is acting as a collider with terrain, fix that @created(19-07-22 23:21) @done(19-07-22 23:21)
             Note; On further inspection, this was no longer necessary. Might find a way to reimplement later if stairs don't feel sticky enough and/or hard to enter. Another option would be to change the shape of stair triggers [more likely]
+        ☐ BUG: Player colliding with a ceiling causes the player to get stuck or move upwards. @created(19-07-23 01:45)
+            This is a result of animating the hitbox of the player when they jump. The solution is to forcibly move the player down 1/2 tile when they colide with a ceiling, to make room for the expanding hitbox. This must be done before animating the expanded hitbox. The alternative is making the player's hitbox not expand until they are grounded, but this can result in the player appearing to be inside a block.
         
         These two steps will round out the majority of the player controller until we start dealing with sub attacks.
 
