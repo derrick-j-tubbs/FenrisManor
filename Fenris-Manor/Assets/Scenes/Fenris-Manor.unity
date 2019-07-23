@@ -219,6 +219,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &136035742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136035736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02a032c7f03247f4d960ea02958e242e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346648183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,7 +6897,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 408961439}
-  - component: {fileID: 408961440}
   m_Layer: 0
   m_Name: Stairs0UpDown
   m_TagString: Untagged
@@ -6901,30 +6912,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408961438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2013677487}
   - {fileID: 908222359}
+  - {fileID: 2013677487}
   m_Father: {fileID: 1750489014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &408961440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408961438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5247e811b3c6e3840a90d6e5a95429f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stairDirection: 1
-  upTrigger: {fileID: 2013677486}
-  downTrigger: {fileID: 908222358}
-  numSteps: 10
 --- !u!1 &439796639
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,7 +6989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439796639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.86, y: 0.52, z: -10}
+  m_LocalPosition: {x: 6.56, y: 0.21000004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 452466563}
@@ -7465,7 +7460,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7489,7 +7484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.860407, y: 0.5050893, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 546786188}
@@ -8086,8 +8081,9 @@ GameObject:
   m_Component:
   - component: {fileID: 908222359}
   - component: {fileID: 908222360}
+  - component: {fileID: 908222361}
   m_Layer: 0
-  m_Name: Stairs0DownTrigger
+  m_Name: Stairs0UpTrigger
   m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8101,11 +8097,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908222358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: -4, z: 1.5}
+  m_LocalPosition: {x: 19, y: -4, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 408961439}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &908222360
 BoxCollider2D:
@@ -8133,6 +8129,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &908222361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908222358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f410ef8720ed234fa641fb0e5747556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stairDirection: 1
+  endOfStairs: {fileID: 908222358}
+  prepDirection: 0
 --- !u!1 &1084042594
 GameObject:
   m_ObjectHideFlags: 0
@@ -11801,7 +11812,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1333593457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.86, y: 0.52, z: -10}
+  m_LocalPosition: {x: 6.56, y: 0.21000004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1272531350}
@@ -11821,11 +11832,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.86
+      value: 6.56
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.63
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 4153770419592146, guid: b9b038cc316e0114f8cd73acda3551c7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12478,8 +12489,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2013677487}
   - component: {fileID: 2013677488}
+  - component: {fileID: 2013677489}
   m_Layer: 0
-  m_Name: Stairs0UpTrigger
+  m_Name: Stairs0DownTrigger
   m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12493,11 +12505,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013677486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.5, y: 2.5, z: 1.5}
+  m_LocalPosition: {x: 25.5, y: 1.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 408961439}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2013677488
 BoxCollider2D:
@@ -12525,3 +12537,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &2013677489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013677486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f410ef8720ed234fa641fb0e5747556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stairDirection: 1
+  endOfStairs: {fileID: 908222358}
+  prepDirection: 0
