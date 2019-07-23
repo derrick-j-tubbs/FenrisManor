@@ -9,11 +9,9 @@ public class DoorTrigger : MonoBehaviour {
     public CinemachineVirtualCamera finalCamera;
 
     public GameObject roomSpawnPoint;
-    private Collider2D _collision;
 
 	public void OnTriggerEnter2D(Collider2D collision)
     {
-        _collision = collision;
         if (collision.gameObject.tag != "Player")
             return;
 
