@@ -81,7 +81,7 @@ public class PhysicsObject : MonoBehaviour
         Movement(move, true);
     }
 
-    // Function to make the given object move, this function is only called if the character is moving along the y axist
+    // Function to make the given object move, this function is only called if the character is moving along the y axis
     void Movement(Vector2 move, bool yMovement) {
         //Distance is used to determine whether or not collision should be checked. This prevents stationary objects from constantly checking their collision
         float distance = move.magnitude;
@@ -110,7 +110,7 @@ public class PhysicsObject : MonoBehaviour
                     }
                 }
 
-                // Project is used to ensure that if a player collides with a ceiling that their horizontal movement is preserved.
+                // Projection is used to ensure that if a player collides with a ceiling that their horizontal movement is preserved.
                 float projection = Vector2.Dot(velocity, currentNormal);
                 if (projection < 0) {
                     velocity -= projection * currentNormal;
