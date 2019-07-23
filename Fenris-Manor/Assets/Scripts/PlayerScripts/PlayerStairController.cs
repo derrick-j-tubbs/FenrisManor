@@ -18,6 +18,6 @@ public class PlayerStairController : MonoBehaviour
     {
         if (collision.gameObject.tag != "Stairs")
             return;
-
+        Debug.Log("You did it!");
     }
 }
