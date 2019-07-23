@@ -321,6 +321,11 @@ Phase 2: Feb 14 -??:
                 Don't worry about drop tables yet, that can come later.
         ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
             ☐ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00)
+            ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
+                My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
+
+        ✔ BUG: PlayerFeet hitbox is acting as a collider with terrain, fix that @created(19-07-22 23:21) @done(19-07-22 23:21)
+            Note; On further inspection, this was no longer necessary. Might find a way to reimplement later if stairs don't feel sticky enough and/or hard to enter. Another option would be to change the shape of stair triggers [more likely]
         
         These two steps will round out the majority of the player controller until we start dealing with sub attacks.
 
