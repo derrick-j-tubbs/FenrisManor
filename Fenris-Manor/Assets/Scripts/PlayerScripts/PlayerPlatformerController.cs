@@ -44,7 +44,6 @@ public class PlayerPlatformerController : PhysicsObject
         Vector2 move = Vector2.zero;
 
         move.x = Input.GetAxis("Horizontal");
-
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = jumpTakeOffSpeed;
         } else if (Input.GetButtonUp("Jump")){
@@ -56,5 +55,10 @@ public class PlayerPlatformerController : PhysicsObject
 
         targetVelocity = move * maxSpeed;
 
+    }
+
+    public bool PlayerGrounded()
+    {
+        return isGrounded;
     }
 }
