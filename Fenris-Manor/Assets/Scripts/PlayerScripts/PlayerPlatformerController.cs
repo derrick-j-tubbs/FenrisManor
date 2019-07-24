@@ -61,4 +61,8 @@ public class PlayerPlatformerController : PhysicsObject
     {
         return isGrounded;
     }
+
+    public void SetPlayerGrounded(bool grounded) {
+        isGrounded = grounded;
+    }
 }
