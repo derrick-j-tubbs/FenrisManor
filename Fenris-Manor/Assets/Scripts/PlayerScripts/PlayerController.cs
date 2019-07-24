@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     
     public enum STAIR_STATE {
         on_stair,
+        near_stair,
         off_stair
     }
 
