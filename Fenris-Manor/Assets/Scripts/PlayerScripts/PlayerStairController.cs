@@ -7,7 +7,9 @@ public class PlayerStairController : MonoBehaviour
     public float transitionSpeed = 3f;
     private float fraction = 0;
 
-    public int stairClimbFrameDuration = 6;
+    public float animationDelay = 6f / 60f;
+
+    private bool canMove = true;
 
     private Animator animator;
     private PlayerController playerController;
@@ -50,11 +52,13 @@ public class PlayerStairController : MonoBehaviour
     }
 
     private void Update() {
-        if (playerStairState == PlayerController.STAIR_STATE.on_stair) {
+        if (playerStairState == PlayerController.STAIR_STATE.on_stair && canMove) {
             if (Input.GetKey("d")) {
+                canMove = false;
                 Debug.Log("Moving Right on Stairs");
                 StartCoroutine(MoveRightOnStairs(player));
             } else if (Input.GetKey("a")) {
+                canMove = false;
                 Debug.Log("Moving Left on Stairs");
                 StartCoroutine(MoveLeftOnStairs(player));
             }
@@ -71,7 +75,7 @@ public class PlayerStairController : MonoBehaviour
 
     IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep) {
         Vector2 posPlayer = new Vector2(player.transform.position.x, closestEndStep.transform.position.y + 1);
-        Vector2 posStep = new Vector2(closestEndStep.transform.position.x, closestEndStep.transform.position.y + 1);
+        Vector2 posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
 
         this.enabled = false;
         while (fraction < 1) {
@@ -81,44 +85,70 @@ public class PlayerStairController : MonoBehaviour
             player.transform.position = Vector2.Lerp(posPlayer, posStep, fraction);
             yield return new WaitForEndOfFrame();
         }
+        animator.Play("PlayerStairsIdle");
         this.enabled = true;
     }
 
     IEnumerator MoveLeftOnStairs(GameObject player) {
-        float animationDelay = 6f / 60f;
-        Debug.Log("Animation Delay: " + animationDelay);
         Vector2 moveTo = Vector2.zero;
-        if (stairDirection == StairController.STAIR_DIRECTION.Up) {
-            float newX = player.transform.position.x - 0.5f;
-            float newY = player.transform.position.y - 0.5f;
-            moveTo = new Vector2(newX, newY);
-            animator.Play("PlayerDownStairs");
-        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
-            float newX = player.transform.position.x + 0.5f;
-            float newY = player.transform.position.y + 0.5f;
-            moveTo = new Vector2(newX, newY);
-            animator.Play("PlayerUpStairs");
-        } 
-        player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
-        yield return new WaitForSeconds(1f);
-    }
+        float velocity = -1f;
+        FlipSprite(velocity);
 
-    IEnumerator MoveRightOnStairs(GameObject player) {
-        float animationDelay = 6f / 60f;
-        Debug.Log("Animation Delay: " + animationDelay);
-        Vector2 moveTo = Vector2.zero;
+        animator.Play("PlayerStairsIdle");
+        yield return new WaitForSeconds(animationDelay / 2);
+
         if (stairDirection == StairController.STAIR_DIRECTION.Up) {
-            float newX = player.transform.position.x + 0.5f;
-            float newY = player.transform.position.y + 0.5f;
-            moveTo = new Vector2(newX, newY);
-            animator.Play("PlayerUpStairs");
-        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
             float newX = player.transform.position.x - 0.5f;
             float newY = player.transform.position.y - 0.5f;
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerDownStairs");
+        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
+            float newX = player.transform.position.x + 0.5f;
+            float newY = player.transform.position.y + 0.5f;
+            moveTo = new Vector2(newX, newY);
+            animator.Play("PlayerUpStairs");
         } 
         player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
         yield return new WaitForSeconds(animationDelay);
+        animator.Play("PlayerStairsIdle");
+        yield return new WaitForSeconds(animationDelay / 2);
+        canMove = true;
+    }
+
+    IEnumerator MoveRightOnStairs(GameObject player) {
+        Vector2 moveTo = Vector2.zero;
+        float velocity = 1f;
+        FlipSprite(velocity);
+
+        animator.Play("PlayerStairsIdle");
+        yield return new WaitForSeconds(animationDelay / 2);
+
+        if (stairDirection == StairController.STAIR_DIRECTION.Up) {
+            
+            float newX = player.transform.position.x + 0.5f;
+            float newY = player.transform.position.y + 0.5f;
+            moveTo = new Vector2(newX, newY);
+            animator.Play("PlayerUpStairs");
+
+        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
+            float newX = player.transform.position.x - 0.5f;
+            float newY = player.transform.position.y - 0.5f;
+            moveTo = new Vector2(newX, newY);
+            animator.Play("PlayerDownStairs");    
+        } 
+        player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
+        yield return new WaitForSeconds(animationDelay);
+        animator.Play("PlayerStairsIdle");
+        yield return new WaitForSeconds(animationDelay / 2);
+        canMove = true;
+    }
+
+    void FlipSprite(float velocity) {
+        SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
+        bool flipSprite = (spriteRenderer.flipX ? (velocity > 0.01f) : (velocity < 0.01f));
+
+                if (flipSprite) {
+                    spriteRenderer.flipX = !spriteRenderer.flipX;
+                }
     }
 }
