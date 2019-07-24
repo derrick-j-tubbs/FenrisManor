@@ -10,6 +10,7 @@ public class PlayerStairController : MonoBehaviour
     public float animationDelay = 6f / 60f;
 
     private bool canMove = true;
+    private bool climbEnabled = true;
 
     private Animator animator;
     private PlayerController playerController;
@@ -33,9 +34,10 @@ public class PlayerStairController : MonoBehaviour
     {
         if (collision.gameObject.tag != "Stairs")
             return;
-        
+        if (!climbEnabled)
+            return;   
         GameObject stairs = collision.gameObject;
-        StairController stairController = stairs.GetComponent<StairController>();
+        StairController stairController = stairs.GetComponentInParent<StairController>();
         leftEndStep = stairController.leftEndStep;
         rightEndStep = stairController.rightEndStep;
 
@@ -43,7 +45,7 @@ public class PlayerStairController : MonoBehaviour
 
         stairDirection = stairController.getStairDirection();
         float climb = Input.GetAxisRaw("Climb");
-        if (climb > 0.1f)
+        if ((climb == 1 || climb== -1) && playerStairState != PlayerController.STAIR_STATE.on_stair)
         {
             platformerController.enabled = false;
             //Debug.Log("Control taken from platformer controller");
@@ -59,14 +61,27 @@ public class PlayerStairController : MonoBehaviour
     }
 
     private void Update() {
-        if (playerStairState == PlayerController.STAIR_STATE.on_stair && canMove) {
-            if (Input.GetKey("d")) {
-                canMove = false;
-                Debug.Log("Moving Right on Stairs");
-                StartCoroutine(MoveRightOnStairs(player));
-            } else if (Input.GetKey("a")) {
-                canMove = false;
-                StartCoroutine(MoveLeftOnStairs(player));
+        if (playerStairState == PlayerController.STAIR_STATE.on_stair && canMove && climbEnabled) {
+            float move = Input.GetAxisRaw("Horizontal");
+            float climb = Input.GetAxisRaw("Climb");
+            if (stairDirection == StairController.STAIR_DIRECTION.Up) {
+                if (move == 1 || climb == 1) {
+                    canMove = false;
+                    Debug.Log("Moving Right on Stairs");
+                    StartCoroutine(MoveRightOnStairs(player));
+                } else if (move == -1 || climb == -1) {
+                    canMove = false;
+                    StartCoroutine(MoveLeftOnStairs(player));
+                }
+            } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
+                if (move == 1 || climb == -1) {
+                    canMove = false;
+                    Debug.Log("Moving Right on Stairs");
+                    StartCoroutine(MoveRightOnStairs(player));
+                } else if (move == -1 || climb == 1) {
+                    canMove = false;
+                    StartCoroutine(MoveLeftOnStairs(player));
+                }
             }
         }
     }
@@ -91,10 +106,18 @@ public class PlayerStairController : MonoBehaviour
     IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep, StairController stairController) {
         Vector2 posPlayer = new Vector2(player.transform.position.x, closestEndStep.transform.position.y + 1);
         Vector2 posStep = Vector2.zero;
-        if (closestEndStep.transform.position.x == stairController.leftEndStep.transform.position.x) {
-            posStep = new Vector2(closestEndStep.transform.position.x + 0.25f, closestEndStep.transform.position.y + 1);
-        } else if (closestEndStep.transform.position.x == stairController.rightEndStep.transform.position.x) {
-            posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
+        if (stairDirection == StairController.STAIR_DIRECTION.Up) {
+            if (closestEndStep.transform.position.x == stairController.leftEndStep.transform.position.x) {
+                posStep = new Vector2(closestEndStep.transform.position.x + 0.25f, closestEndStep.transform.position.y + 1);
+            } else if (closestEndStep.transform.position.x == stairController.rightEndStep.transform.position.x) {
+                posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
+            }
+        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
+            if (closestEndStep.transform.position.x == stairController.leftEndStep.transform.position.x) {
+                posStep = new Vector2(closestEndStep.transform.position.x + 0.25f, closestEndStep.transform.position.y + 1);
+            } else if (closestEndStep.transform.position.x == stairController.rightEndStep.transform.position.x) {
+                posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
+            }
         }
 
         this.enabled = false;
@@ -124,7 +147,7 @@ public class PlayerStairController : MonoBehaviour
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerDownStairs");
         } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
-            float newX = player.transform.position.x + 0.5f;
+            float newX = player.transform.position.x - 0.5f;
             float newY = player.transform.position.y + 0.5f;
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerUpStairs");
@@ -167,7 +190,7 @@ public class PlayerStairController : MonoBehaviour
             animator.Play("PlayerUpStairs");
 
         } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
-            float newX = player.transform.position.x - 0.5f;
+            float newX = player.transform.position.x + 0.5f;
             float newY = player.transform.position.y - 0.5f;
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerDownStairs");    
@@ -224,5 +247,13 @@ public class PlayerStairController : MonoBehaviour
                 if (flipSprite) {
                     spriteRenderer.flipX = !spriteRenderer.flipX;
                 }
+    }
+
+    public void ClimbEnabled(bool disableClimb) {
+        climbEnabled = disableClimb;
+    }
+
+    public bool GetClimbEnabled() {
+        return climbEnabled;
     }
 }
