@@ -321,7 +321,6 @@ Phase 2: Feb 14 -??:
                 Don't worry about drop tables yet, that can come later.
         ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
             ☐ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00)
-                ☐ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania fans @created(19-07-23 21:50)
             ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
                 My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
             ✔ The entire staircase is the trigger to enter the stairs. @created(19-07-23 11:52) @done(19-07-23 12:35)
@@ -356,7 +355,10 @@ Phase 2: Feb 14 -??:
                 ☐ Allow the player to mount the stairs while jumping @created(19-07-23 21:57)
                 ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
                 ☐ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57)
-
+            
+            Considerations:
+                ☐ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50)
+                
             Future Stair Requirements:
                 ☐ Player can attack while on stairs @created(19-07-23 21:58)
                 ☐ Player can use subweapons while on stairs @created(19-07-23 21:59)
