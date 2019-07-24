@@ -10,8 +10,7 @@ public class StairController : MonoBehaviour
         none
     };
 
-    protected int numSteps = 0;
-    protected float stairSize = 0.5f;
+    private int numSteps = 0;
 
     protected STAIR_DIRECTION stairDirection;
     private EdgeCollider2D edgeCollider;
@@ -45,6 +44,10 @@ public class StairController : MonoBehaviour
 
     public STAIR_DIRECTION getStairDirection() {
         return stairDirection;
+    }
+
+    public int getNumSteps() {
+        return numSteps;
     }
 
     int CalculateNumSteps() {
