@@ -321,20 +321,54 @@ Phase 2: Feb 14 -??:
                 Don't worry about drop tables yet, that can come later.
         ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
             ☐ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00)
+                ☐ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania fans @created(19-07-23 21:50)
             ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
                 My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
+            ✔ The entire staircase is the trigger to enter the stairs. @created(19-07-23 11:52) @done(19-07-23 12:35)
+                Based on below the only information needed to determine all the values of the stairs are:
+                    ✔ Right X/Y @created(19-07-23 11:54) @done(19-07-23 12:35)
+                    ✔ Left X/Y @created(19-07-23 11:54) @done(19-07-23 12:35)
+            ✔ Calculate number of stairs by using trigger x positions. @created(19-07-23 11:48) @done(19-07-23 12:35)
+                (Right x - Left x) / 2 = num stairs [2 steps per tile so divide by 2]
+            ☐ Determine player y position by calculating which stair they would be on @created(19-07-23 11:49)
+                (Right x - player x) / 2 = currentX
+                currentX = Mathf.Round(currentX * 2) * 0.5f
+                ☐ Snap the player to this x/y position when climb button (up/down) is held while jumping @created(19-07-23 11:55)
+            ✔ Snap the player to the 'rail' when walking onto the stairs from the ground @created(19-07-23 21:47) @done(19-07-23 21:49)
+            ✔ Determine whether the stairs go up or down / left or right by comparing left y to right y @created(19-07-23 11:52) @done(19-07-23 21:46)
+                if (left y < right y) stairs go up
+                if (left y > right y) stairs go down
+            ☐ Players left/right facing should be preserved from ground/air movement @created(19-07-23 11:55)
+                Initial facing is currently preserved, facing is not swapped when changing walk direction, animation plays backwards. This should be easy to remedy, but will require a logic check when changing directions.
+            ✔ Take away player control when entering a stair collision with the activator on @created(19-07-23 15:56) @done(19-07-23 15:56)
+                This prevents gravity from affecting the player sprite and pulling it back off of the stairs.
+            ✔ Determine which end of the stairs is closest to the player if they are grounded. @created(19-07-23 15:56) @done(19-07-23 20:13)
+                This required moving collision onto the parent object and down a step from the Tilemap parent and revisiting the StairController script to automatically generate edge colliders.
 
+                How to LERP /CORRECTLY/ http://www.blueraja.com/blog/404/how-to-use-unity-3ds-linear-interpolation-vector3-lerp-correctly
+
+            Remaining Stair Steps (hah):
+                ☐ Force dismount at top and bottom of stairs @created(19-07-23 21:51)
+                    dismount should set state to off_stair, allow the player to resume normal movement controls, and reapply gravity to the player
+                ☐ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52)
+                    may need to speed up the animation to make this feel fluid and not like walking through mud
+                ☐ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56)
+                ☐ Allow the player to mount the stairs while jumping @created(19-07-23 21:57)
+                ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
+                ☐ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57)
+
+            Future Stair Requirements:
+                ☐ Player can attack while on stairs @created(19-07-23 21:58)
+                ☐ Player can use subweapons while on stairs @created(19-07-23 21:59)
+
+    Future Bugs:
         ✔ BUG: PlayerFeet hitbox is acting as a collider with terrain, fix that @created(19-07-22 23:21) @done(19-07-22 23:21)
             Note; On further inspection, this was no longer necessary. Might find a way to reimplement later if stairs don't feel sticky enough and/or hard to enter. Another option would be to change the shape of stair triggers [more likely]
+
+            Reimplimented this hitbox, however chose to not make it larger than the players hitbox by default. If I decide to expand this later, this may become a challenge again. A likely sollution is just changing the tags or layer of this to something that has no collision since it acts mostly as a trigger anyway. However, checking 'Is Trigger' didn't resolve this initially.
+
         ☐ BUG: Player colliding with a ceiling causes the player to get stuck or move upwards. @created(19-07-23 01:45)
             This is a result of animating the hitbox of the player when they jump. The solution is to forcibly move the player down 1/2 tile when they colide with a ceiling, to make room for the expanding hitbox. This must be done before animating the expanded hitbox. The alternative is making the player's hitbox not expand until they are grounded, but this can result in the player appearing to be inside a block.
-        
-        These two steps will round out the majority of the player controller until we start dealing with sub attacks.
-
-        
-
-
-
 
 Phase 3: 
     Finish writing code for movement controller/camera controller, make enemies react when seeing the player, give enemies and the player a health value, give weapons a damage value [for enemies their body is the weapon].
