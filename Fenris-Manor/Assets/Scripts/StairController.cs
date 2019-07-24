@@ -29,11 +29,20 @@ public class StairController : MonoBehaviour
         edgeCollider = GetComponent<EdgeCollider2D>();
         numSteps = CalculateNumSteps();
         stairDirection = DetermineStairDirection();
-        for (int x = 0; x < (numSteps - 1) / 2; x++) {
-            verticies.Add( new Vector2(x, x));
-            verticies.Add( new Vector2(x, x + 0.5f));
-            verticies.Add( new Vector2(x + 0.5f, x + 0.5f));
-            verticies.Add( new Vector2(x + 0.5f, x + 1f));
+        if (stairDirection == STAIR_DIRECTION.Up) {
+            for (int x = 0; x <= ((numSteps - 1) / 2); x++) {
+                verticies.Add( new Vector2(x, x));
+                verticies.Add( new Vector2(x, x + 0.5f));
+                verticies.Add( new Vector2(x + 0.5f, x + 0.5f));
+                verticies.Add( new Vector2(x + 0.5f, x + 1f));
+            }
+        } if (stairDirection == STAIR_DIRECTION.Down) {
+            for (int x = 0; x <= ((numSteps -1 ) / 2); x++) {
+                    verticies.Add( new Vector2(x, -x));
+                    verticies.Add( new Vector2(x, -x - 0.5f));
+                    verticies.Add( new Vector2(x + 0.5f, -x - 0.5f));
+                    verticies.Add( new Vector2(x + 0.5f, -x - 1f));
+            }
         }
         SetPoints();
     }
