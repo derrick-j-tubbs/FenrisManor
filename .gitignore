@@ -83,9 +83,6 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/unity,windows
 
-# Aseprite Files
-*.aseprite
-
 # Reference Images
 /Sprites/Enemies/Bosses/*/ReferenceImages
 /Sprites/Player/*/ReferenceImages
