@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 61030872065079696}
   - component: {fileID: 50990430127362754}
   - component: {fileID: 114428103347740098}
-  - component: {fileID: 2554889989566774524}
+  - component: {fileID: 3623111047305513170}
+  - component: {fileID: 9026572747746677988}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -147,7 +148,7 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   maxSpeed: 7
   jumpTakeOffSpeed: 7
---- !u!114 &2554889989566774524
+--- !u!114 &3623111047305513170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,8 +160,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9c0f6586e38434ca970686e5119679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 1323938216396014}
   PlayerAnimator: {fileID: 0}
+--- !u!95 &9026572747746677988
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323938216396014}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b7bb388298dcf7747b20d302635c4fd1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &269614227725875838
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,4 +252,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionSpeed: 0.5
-  stairClimbFrameDuration: 6
+  animationDelay: 0.1
