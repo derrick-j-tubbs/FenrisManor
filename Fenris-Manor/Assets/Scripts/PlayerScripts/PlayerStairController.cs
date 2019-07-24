@@ -25,6 +25,9 @@ public class PlayerStairController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != "Stairs")
+            return;
+
         PlayerPlatformerController platformerController = player.GetComponent<PlayerPlatformerController>();
         
         GameObject stairs = collision.gameObject;
@@ -32,8 +35,6 @@ public class PlayerStairController : MonoBehaviour
 
         GameObject closestEndStep;
 
-        if (collision.gameObject.tag != "Stairs")
-            return;
         stairDirection = stairController.getStairDirection();
         float climb = Input.GetAxis("Climb");
         if (climb > 0.1f)
@@ -45,7 +46,7 @@ public class PlayerStairController : MonoBehaviour
             {
                 closestEndStep = FindClosestEnd(stairController, player);
                 //Debug.Log("Closest End: " + closestEndStep.name);
-                StartCoroutine(MovePlayerToStairs(player, closestEndStep));
+                StartCoroutine(MovePlayerToStairs(player, closestEndStep, stairController));
                 playerStairState = PlayerController.STAIR_STATE.on_stair;
             }
         }
@@ -65,7 +66,7 @@ public class PlayerStairController : MonoBehaviour
         }
     }
 
-    private GameObject FindClosestEnd(StairController stairs, GameObject player) {
+    GameObject FindClosestEnd(StairController stairs, GameObject player) {
         float leftDifference = Mathf.Abs(stairs.leftEndStep.transform.position.x - player.transform.position.x);
         float rightDifference = Mathf.Abs(stairs.rightEndStep.transform.position.x - player.transform.position.x);
         if (leftDifference < rightDifference)
@@ -73,9 +74,21 @@ public class PlayerStairController : MonoBehaviour
         return stairs.rightEndStep;
     }
 
-    IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep) {
+    GameObject FindOppositeEnd(StairController stairs, GameObject closestEndStep) {
+        if (stairs.rightEndStep.transform.position.x == closestEndStep.transform.position.x) {
+            return stairs.leftEndStep;
+        }
+        return stairs.rightEndStep;
+    }
+
+    IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep, StairController stairController) {
         Vector2 posPlayer = new Vector2(player.transform.position.x, closestEndStep.transform.position.y + 1);
-        Vector2 posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
+        Vector2 posStep = Vector2.zero;
+        if (closestEndStep.transform.position.x == stairController.leftEndStep.transform.position.x) {
+            posStep = new Vector2(closestEndStep.transform.position.x + 0.25f, closestEndStep.transform.position.y + 1);
+        } else if (closestEndStep.transform.position.x == stairController.rightEndStep.transform.position.x) {
+            posStep = new Vector2(closestEndStep.transform.position.x - 0.25f, closestEndStep.transform.position.y + 1);
+        }
 
         this.enabled = false;
         while (fraction < 1) {
