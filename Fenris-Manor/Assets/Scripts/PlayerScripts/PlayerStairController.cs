@@ -14,29 +14,35 @@ public class PlayerStairController : MonoBehaviour
     private Animator animator;
     private PlayerController playerController;
     private GameObject player;
+    private PlayerPlatformerController platformerController;
     private PlayerController.STAIR_STATE playerStairState = PlayerController.STAIR_STATE.off_stair;
+    
     private StairController.STAIR_DIRECTION stairDirection;
+    private GameObject leftEndStep;
+    private GameObject rightEndStep;
+    private string directionLeft;
 
     private void Awake() {
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
         animator = playerController.PlayerAnimator;
+        platformerController = player.GetComponent<PlayerPlatformerController>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Stairs")
             return;
-
-        PlayerPlatformerController platformerController = player.GetComponent<PlayerPlatformerController>();
         
         GameObject stairs = collision.gameObject;
         StairController stairController = stairs.GetComponent<StairController>();
+        leftEndStep = stairController.leftEndStep;
+        rightEndStep = stairController.rightEndStep;
 
         GameObject closestEndStep;
 
         stairDirection = stairController.getStairDirection();
-        float climb = Input.GetAxis("Climb");
+        float climb = Input.GetAxisRaw("Climb");
         if (climb > 0.1f)
         {
             platformerController.enabled = false;
@@ -46,8 +52,8 @@ public class PlayerStairController : MonoBehaviour
             {
                 closestEndStep = FindClosestEnd(stairController, player);
                 //Debug.Log("Closest End: " + closestEndStep.name);
+                fraction = 0;
                 StartCoroutine(MovePlayerToStairs(player, closestEndStep, stairController));
-                playerStairState = PlayerController.STAIR_STATE.on_stair;
             }
         }
     }
@@ -60,7 +66,6 @@ public class PlayerStairController : MonoBehaviour
                 StartCoroutine(MoveRightOnStairs(player));
             } else if (Input.GetKey("a")) {
                 canMove = false;
-                Debug.Log("Moving Left on Stairs");
                 StartCoroutine(MoveLeftOnStairs(player));
             }
         }
@@ -81,6 +86,8 @@ public class PlayerStairController : MonoBehaviour
         return stairs.rightEndStep;
     }
 
+
+
     IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep, StairController stairController) {
         Vector2 posPlayer = new Vector2(player.transform.position.x, closestEndStep.transform.position.y + 1);
         Vector2 posStep = Vector2.zero;
@@ -92,13 +99,14 @@ public class PlayerStairController : MonoBehaviour
 
         this.enabled = false;
         while (fraction < 1) {
-            fraction += Time.deltaTime * transitionSpeed;
+            fraction += Time.deltaTime * transitionSpeed * 2;
             if (fraction > 1)
                 fraction = 1;
             player.transform.position = Vector2.Lerp(posPlayer, posStep, fraction);
             yield return new WaitForEndOfFrame();
         }
         animator.Play("PlayerStairsIdle");
+        playerStairState = PlayerController.STAIR_STATE.on_stair;
         this.enabled = true;
     }
 
@@ -121,11 +129,26 @@ public class PlayerStairController : MonoBehaviour
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerUpStairs");
         } 
-        player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
-        yield return new WaitForSeconds(animationDelay);
-        animator.Play("PlayerStairsIdle");
-        yield return new WaitForSeconds(animationDelay / 2);
-        canMove = true;
+        if (!CheckLeftBound(moveTo)) {
+            Debug.Log("Moving Left on Stairs");
+            player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
+            yield return new WaitForSeconds(animationDelay);
+            animator.Play("PlayerStairsIdle");
+            yield return new WaitForSeconds(animationDelay / 2);
+            canMove = true;
+        } else {
+            fraction = 0;
+            Debug.Log("Moving Player Off Stairs");
+            StartCoroutine(MovePlayerOffStairs());
+        }
+    }
+
+    bool CheckLeftBound(Vector2 moveTo) {
+        if (moveTo.x < leftEndStep.transform.position.x) {
+            directionLeft = "left";
+            return true;
+        }
+        return false;
     }
 
     IEnumerator MoveRightOnStairs(GameObject player) {
@@ -149,10 +172,48 @@ public class PlayerStairController : MonoBehaviour
             moveTo = new Vector2(newX, newY);
             animator.Play("PlayerDownStairs");    
         } 
-        player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
-        yield return new WaitForSeconds(animationDelay);
-        animator.Play("PlayerStairsIdle");
-        yield return new WaitForSeconds(animationDelay / 2);
+        if (!CheckRightBound(moveTo)){
+            player.transform.position = Vector2.Lerp(player.transform.position, moveTo, 1);
+            yield return new WaitForSeconds(animationDelay);
+            animator.Play("PlayerStairsIdle");
+            yield return new WaitForSeconds(animationDelay / 2);
+            canMove = true;
+        } else {
+            fraction = 0;
+            Debug.Log("Moving Player Off Stairs");
+            StartCoroutine(MovePlayerOffStairs());
+        }
+    }
+
+    bool CheckRightBound(Vector2 moveTo) {
+        if (moveTo.x > rightEndStep.transform.position.x) {
+            directionLeft = "right";
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator MovePlayerOffStairs() {
+        Vector2 posPlayer = player.transform.position;
+        Vector2 moveTo = Vector2.zero;
+        if (directionLeft == "left") {
+            moveTo = new Vector2(player.transform.position.x - 1, player.transform.position.y);
+        } else if (directionLeft == "right") {
+            moveTo = new Vector2(player.transform.position.x + 1, player.transform.position.y);
+        }
+
+        this.enabled = false;
+        animator.Play("PlayerWalk");
+        while (fraction < 1) {
+            fraction += Time.deltaTime * transitionSpeed * 4;
+            if (fraction > 1)
+                fraction = 1;
+            player.transform.position = Vector2.Lerp(posPlayer, moveTo, fraction);
+            yield return new WaitForEndOfFrame();
+        }
+        Debug.Log("Player off stairs");
+        playerStairState = PlayerController.STAIR_STATE.off_stair;
+        platformerController.enabled = true;
         canMove = true;
     }
 
