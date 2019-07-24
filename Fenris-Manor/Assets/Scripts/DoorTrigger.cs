@@ -9,6 +9,8 @@ public class DoorTrigger : MonoBehaviour {
     public CinemachineVirtualCamera finalCamera;
 
     public GameObject roomSpawnPoint;
+    public PlayerPlatformerController platformerController;
+    public PlayerStairController stairController;
 
 	public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,14 +26,19 @@ public class DoorTrigger : MonoBehaviour {
 
     IEnumerator DisableControls() {
         GameObject player = GameObject.Find("Player");
-        PlayerPlatformerController controller;
-        if (controller = player.GetComponent<PlayerPlatformerController>()) {
+        if ((platformerController = player.GetComponent<PlayerPlatformerController>()) && 
+                (stairController = player.GetComponentInChildren<PlayerStairController>())) {
             Debug.Log("Controls Off");
-            controller.enabled = false;
+            ToggleControls(false);
             yield return new WaitForSeconds(1);
             Debug.Log("Controls On");
-            controller.enabled = true;
+            ToggleControls(true);
 
         }
+    }
+
+    void ToggleControls(bool state) {
+        platformerController.enabled = state;
+        stairController.ClimbEnabled(state);
     }
 }
