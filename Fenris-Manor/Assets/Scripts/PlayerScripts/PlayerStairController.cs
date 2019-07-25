@@ -64,6 +64,10 @@ public class PlayerStairController : MonoBehaviour
         if (playerStairState == PlayerController.STAIR_STATE.on_stair && canMove && climbEnabled) {
             float move = Input.GetAxisRaw("Horizontal");
             float climb = Input.GetAxisRaw("Climb");
+            if (climb == -1 && Input.GetButton("Jump")) {
+                FallOffStairs();
+                return;
+            }
             if (stairDirection == StairController.STAIR_DIRECTION.Up) {
                 if (move == 1 || climb == 1) {
                     canMove = false;
@@ -235,6 +239,13 @@ public class PlayerStairController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("Player off stairs");
+        playerStairState = PlayerController.STAIR_STATE.off_stair;
+        platformerController.enabled = true;
+        canMove = true;
+    }
+
+    void FallOffStairs() {
+        animator.Play("PlayerJumpDown");
         playerStairState = PlayerController.STAIR_STATE.off_stair;
         platformerController.enabled = true;
         canMove = true;
