@@ -320,7 +320,7 @@ Phase 2: Feb 14 -??:
             ☐ Make candles breakable @created(19-07-17 02:00)
                 Don't worry about drop tables yet, that can come later.
         ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
-            ☐ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00)
+            ✔ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00) @done(19-07-24 19:13)
             ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
                 My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
             ✔ The entire staircase is the trigger to enter the stairs. @created(19-07-23 11:52) @done(19-07-23 12:35)
@@ -337,7 +337,7 @@ Phase 2: Feb 14 -??:
             ✔ Determine whether the stairs go up or down / left or right by comparing left y to right y @created(19-07-23 11:52) @done(19-07-23 21:46)
                 if (left y < right y) stairs go up
                 if (left y > right y) stairs go down
-            ☐ Players left/right facing should be preserved from ground/air movement @created(19-07-23 11:55)
+            ✔ Players left/right facing should be preserved from ground/air movement @created(19-07-23 11:55) @done(19-07-24 19:13)
                 Initial facing is currently preserved, facing is not swapped when changing walk direction, animation plays backwards. This should be easy to remedy, but will require a logic check when changing directions.
             ✔ Take away player control when entering a stair collision with the activator on @created(19-07-23 15:56) @done(19-07-23 15:56)
                 This prevents gravity from affecting the player sprite and pulling it back off of the stairs.
@@ -347,13 +347,14 @@ Phase 2: Feb 14 -??:
                 How to LERP /CORRECTLY/ http://www.blueraja.com/blog/404/how-to-use-unity-3ds-linear-interpolation-vector3-lerp-correctly
 
             Remaining Stair Steps (hah):
-                ☐ Force dismount at top and bottom of stairs @created(19-07-23 21:51)
+                ✔ Force dismount at top and bottom of stairs @created(19-07-23 21:51) @done(19-07-24 19:13)
                     dismount should set state to off_stair, allow the player to resume normal movement controls, and reapply gravity to the player
-                ☐ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52)
+                ✔ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52) @done(19-07-24 19:13)
                     may need to speed up the animation to make this feel fluid and not like walking through mud
-                ☐ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56)
+                ✔ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56) @done(19-07-24 19:13)
                 ☐ Allow the player to mount the stairs while jumping @created(19-07-23 21:57)
                 ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
+                    I may actually remove this ability, I don't think this is really necessary with all the other control as well ast the stair speed.
                 ☐ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57)
             
             Considerations:
