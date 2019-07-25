@@ -352,17 +352,44 @@ Phase 2: Feb 14 -??:
                 ✔ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52) @done(19-07-24 19:13)
                     may need to speed up the animation to make this feel fluid and not like walking through mud
                 ✔ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56) @done(19-07-24 19:13)
+                ☐ Allow the player to mount the stairs from a stationary position inside of the collider @created(19-07-25 19:46)
                 ☐ Allow the player to mount the stairs while jumping @created(19-07-23 21:57)
                 ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
                     I may actually remove this ability, I don't think this is really necessary with all the other control as well ast the stair speed.
-                ☐ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57)
+                ✔ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57) @done(19-07-25 19:47)
+                    Player can hold jump, then press down to dismount the stairs. [Note: only works with down not with whichever direction (left or right) would be down the stairs.]
             
             Considerations:
-                ☐ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50)
+                ✔ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50) @done(19-07-25 19:46)
+                    Decided this wasn't relevant and the use of up and down works perfectly well and the addition of another button strictly for using stairs might seem clunky and non-intuitive.
+                ☐ Consider rewriting the PhysicsObject class and PlayerPlatformerController class @created(19-07-25 19:48)
+                    These were originally from a tutorial on how to code a 2D platformer, however they make some assumptions that I disagree with for this platformer. I may attempt to adjust rather than replace, but writing my own platformer state machine might be preferable to the current plan. [Reference: https://github.com/lynx-the-cat/Block-People/blob/master/Assets/Scripts/Player/PlayerStateMachine.cs a previously written state machine for player controls]
                 
             Future Stair Requirements:
                 ☐ Player can attack while on stairs @created(19-07-23 21:58)
                 ☐ Player can use subweapons while on stairs @created(19-07-23 21:59)
+
+            To complete the Player Controller:
+                ☐ Finish stairs (see above) @created(19-07-25 14:31)
+                    Make a decision on the ability to jump while on stairs and jump onto stairs. Make the controls more intuitive / flexible [done I think]
+                ☐ Attacks @created(19-07-25 14:32)
+                    Dependant on whip level.
+                    ✔ Complete all Unity animations for player attack patterns @created(19-07-25 19:44) @done(19-07-25 19:45)
+                        Also included transitions in the animator, hopefully I shouldn't need to touch the animator for anything else player related until I work on the player's hurtbox, after the first enemy is coded.
+                    ☐ Create basic attack functionality @created(19-07-25 19:50)
+                        Player presses attack, animation plays once, control is resumed as normal.
+                    ☐ Make the script care about weapon levels. Weapon Levels will be stored in the Player Controller. @created(19-07-25 19:51)
+                    ☐ Make the script play appropriate attack animation for player state [upStairs/downStairs/crouched/normal] @created(19-07-25 19:54)
+                    ☐ Make the script play appropriate attack animation for weapon level@created(19-07-25 19:55)
+                ☐ Subweapons / spells @created(19-07-25 14:33)
+                    Just base versions for now double/triple shot come later
+                        These will require animation work to function properly
+                ☐ Hurt Box / Damage taken @created(19-07-25 14:32)
+                    Attempt to make the hurtbox size/shape match the character more closely.
+                ☐ Player stats @created(19-07-25 14:32)
+                    Health, ammo, subweapon equipped, whip level, etc.
+                
+
 
     Future Bugs:
         ✔ BUG: PlayerFeet hitbox is acting as a collider with terrain, fix that @created(19-07-22 23:21) @done(19-07-22 23:21)
