@@ -16,12 +16,12 @@ public class PlayerStairController : MonoBehaviour
     private PlayerController playerController;
     private GameObject player;
     private PlayerPlatformerController platformerController;
-    private PlayerController.STAIR_STATE playerStairState = PlayerController.STAIR_STATE.off_stair;
     
     private StairController.STAIR_DIRECTION stairDirection;
     private GameObject leftEndStep;
     private GameObject rightEndStep;
     private string directionLeft;
+    private bool isClimbing;
 
     private void Awake() {
         player = GameObject.Find("Player");
@@ -45,7 +45,7 @@ public class PlayerStairController : MonoBehaviour
 
         stairDirection = stairController.getStairDirection();
         float climb = Input.GetAxisRaw("Climb");
-        if ((climb == 1 || climb== -1) && playerStairState != PlayerController.STAIR_STATE.on_stair)
+        if ((climb == 1 || climb== -1) && playerController.getPlayerStairState() != PlayerController.STAIR_STATE.on_stair)
         {
             platformerController.enabled = false;
             //Debug.Log("Control taken from platformer controller");
@@ -60,8 +60,28 @@ public class PlayerStairController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision) {
+        if (collision.gameObject.tag != "Stairs")
+            return;
+        if (!climbEnabled)
+            return;
+        GameObject stairs = collision.gameObject;
+        GameObject closestEndStep;
+        StairController stairController = stairs.GetComponentInParent<StairController>();
+        leftEndStep = stairController.leftEndStep;
+        rightEndStep = stairController.rightEndStep;
+
+        float climb = Input.GetAxisRaw("Climb");
+        if ((climb == 1 || climb == -1) && playerController.getPlayerStairState() != PlayerController.STAIR_STATE.on_stair && platformerController.PlayerGrounded()) {
+            platformerController.enabled = false;
+            closestEndStep = FindClosestEnd(stairController, player);
+            fraction = 0;
+            StartCoroutine(MovePlayerToStairs(player, closestEndStep, stairController));
+        }
+    }
+
     private void Update() {
-        if (playerStairState == PlayerController.STAIR_STATE.on_stair && canMove && climbEnabled) {
+        if (playerController.getPlayerStairState() == PlayerController.STAIR_STATE.on_stair && canMove && climbEnabled) {
             float move = Input.GetAxisRaw("Horizontal");
             float climb = Input.GetAxisRaw("Climb");
             if (climb == -1 && Input.GetButton("Jump")) {
@@ -98,13 +118,6 @@ public class PlayerStairController : MonoBehaviour
         return stairs.rightEndStep;
     }
 
-    GameObject FindOppositeEnd(StairController stairs, GameObject closestEndStep) {
-        if (stairs.rightEndStep.transform.position.x == closestEndStep.transform.position.x) {
-            return stairs.leftEndStep;
-        }
-        return stairs.rightEndStep;
-    }
-
 
 
     IEnumerator MovePlayerToStairs(GameObject player, GameObject closestEndStep, StairController stairController) {
@@ -133,7 +146,7 @@ public class PlayerStairController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         animator.Play("PlayerStairsIdle");
-        playerStairState = PlayerController.STAIR_STATE.on_stair;
+        playerController.setPlayerStairState(PlayerController.STAIR_STATE.on_stair);
         this.enabled = true;
     }
 
@@ -239,14 +252,14 @@ public class PlayerStairController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("Player off stairs");
-        playerStairState = PlayerController.STAIR_STATE.off_stair;
+        playerController.setPlayerStairState(PlayerController.STAIR_STATE.off_stair);
         platformerController.enabled = true;
         canMove = true;
     }
 
     void FallOffStairs() {
         animator.Play("PlayerJumpDown");
-        playerStairState = PlayerController.STAIR_STATE.off_stair;
+        playerController.setPlayerStairState(PlayerController.STAIR_STATE.off_stair);
         platformerController.enabled = true;
         canMove = true;
     }
