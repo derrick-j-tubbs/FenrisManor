@@ -21,8 +21,19 @@ public class PlayerController : MonoBehaviour
         off_stair
     }
 
+    protected STAIR_STATE playerStairState;
+
     void Awake(){
         Player = GameObject.Find("Player");
         PlayerAnimator = Player.GetComponent<Animator>();
+        playerStairState = STAIR_STATE.off_stair;
+    }
+
+    public STAIR_STATE getPlayerStairState(){
+        return playerStairState;
+    }
+
+    public void setPlayerStairState(STAIR_STATE stairState) {
+        playerStairState = stairState;
     }
 }
