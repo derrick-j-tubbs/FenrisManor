@@ -82,10 +82,8 @@ public class PlayerStairController : MonoBehaviour
         if (playerController.getPlayerStairState() == PlayerController.STAIR_STATE.on_stair && canMove && playerController.getIsClimbing()) {
             float move = Input.GetAxisRaw("Horizontal");
             float climb = Input.GetAxisRaw("Climb");
-            if (Input.GetButton("Jump") && !playerFalling) {
-                if (climb == -1) {
-                    StartCoroutine(FallOffStairs());
-                }
+            if (Input.GetButton("Jump") && climb == -1 && !playerFalling) {
+                StartCoroutine(FallOffStairs());
             } else {
                 if (stairDirection == StairController.STAIR_DIRECTION.Up && !playerFalling) {
                     if (move == 1 || climb == 1) {
