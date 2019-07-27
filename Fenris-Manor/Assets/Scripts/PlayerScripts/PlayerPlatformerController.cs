@@ -8,12 +8,14 @@ public class PlayerPlatformerController : PhysicsObject
     public float jumpTakeOffSpeed = 7;
 
     private SpriteRenderer spriteRenderer;
+    private PlayerController playerController;
     private Animator animator;
 
     // Start is called before the first frame update
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerController = GetComponent<PlayerController>();
         animator = GetComponent<Animator>();
     }
 
@@ -32,6 +34,11 @@ public class PlayerPlatformerController : PhysicsObject
 
                 if (flipSprite) {
                     spriteRenderer.flipX = !spriteRenderer.flipX;
+                    if (playerController.getPlayerFacing() == PlayerController.PLAYER_FACING.right) {
+                        playerController.setPlayerFacing(PlayerController.PLAYER_FACING.left);
+                    } else {
+                        playerController.setPlayerFacing(PlayerController.PLAYER_FACING.right);
+                    }
                 }
             } else {
                 animator.Play("PlayerIdle");
@@ -43,15 +50,13 @@ public class PlayerPlatformerController : PhysicsObject
         //  Reset the move vector every time this function is called
         Vector2 move = Vector2.zero;
 
-        move.x = Input.GetAxis("Horizontal");
+        move.x = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump") && isGrounded) {
             velocity.y = jumpTakeOffSpeed;
         } else if (Input.GetButtonUp("Jump")){
             if (velocity.y > 0) {
                 velocity.y *= 0.5f;
             }
-        } else if (Input.GetButton("Jump")){
-            //move.x = 0.5f * move.x;
         }
 
         targetVelocity = move * maxSpeed;
