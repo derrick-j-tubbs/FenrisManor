@@ -352,12 +352,15 @@ Phase 2: Feb 14 -??:
                 ✔ Make the stair climb action wait for the stair climb animation @created(19-07-23 21:52) @done(19-07-24 19:13)
                     may need to speed up the animation to make this feel fluid and not like walking through mud
                 ✔ Make the player change direction based on whether they are going left or right on the stairs @created(19-07-23 21:56) @done(19-07-24 19:13)
-                ☐ Allow the player to mount the stairs from a stationary position inside of the collider @created(19-07-25 19:46)
-                ☐ Allow the player to mount the stairs while jumping @created(19-07-23 21:57)
+                ✔ Allow the player to mount the stairs from a stationary position inside of the collider @created(19-07-25 19:46) @done(19-07-26 20:54)
+                ✔ Allow the player to mount the stairs while jumping @created(19-07-23 21:57) @done(19-07-26 20:54)
                 ☐ Allow the player to jump [only vertically] while on the stairs @created(19-07-23 21:57)
                     I may actually remove this ability, I don't think this is really necessary with all the other control as well ast the stair speed.
                 ✔ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57) @done(19-07-25 19:47)
                     Player can hold jump, then press down to dismount the stairs. [Note: only works with down not with whichever direction (left or right) would be down the stairs.]
+                Stair Bugs:
+                    ☐ Holding jump means you cannot progress up or down the stairs @created(19-07-26 20:54)
+                    ☐ If you hold jump from jumping onto a staircase it charges a jump for when you leave the stairs @created(19-07-26 20:55)
             
             Considerations:
                 ✔ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50) @done(19-07-25 19:46)
