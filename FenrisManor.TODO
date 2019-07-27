@@ -360,7 +360,7 @@ Phase 2: Feb 14 -??:
                     Player can hold jump, then press down to dismount the stairs. [Note: only works with down not with whichever direction (left or right) would be down the stairs.]
                 Stair Bugs:
                     ☐ Holding jump means you cannot progress up or down the stairs @created(19-07-26 20:54)
-                    ☐ If you hold jump from jumping onto a staircase it charges a jump for when you leave the stairs @created(19-07-26 20:55)
+                    ✔ If you hold jump from jumping onto a staircase it charges a jump for when you leave the stairs @created(19-07-26 20:55) @done(19-07-27 14:01)
             
             Considerations:
                 ✔ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50) @done(19-07-25 19:46)
