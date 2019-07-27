@@ -19,29 +19,60 @@ public class StairController : MonoBehaviour
     public GameObject leftEndStep;
     public GameObject rightEndStep;
     
+    public float timer;
+
     void Start() {
-        
-        Debug.Log(this.name + " numSteps: " + numSteps);
-        Debug.Log(this.name + " StairDirection: " + stairDirection);
+        //Debug.Log(this.name + " numSteps: " + numSteps);
+       // Debug.Log(this.name + " StairDirection: " + stairDirection);
     }
 
     void Awake() {
+        
         edgeCollider = GetComponent<EdgeCollider2D>();
         numSteps = CalculateNumSteps();
         stairDirection = DetermineStairDirection();
         if (stairDirection == STAIR_DIRECTION.Up) {
+            // create the bottom of the stair step for the line y = x
             for (int x = 0; x <= ((numSteps - 1) / 2); x++) {
                 verticies.Add( new Vector2(x, x));
                 verticies.Add( new Vector2(x, x + 0.5f));
                 verticies.Add( new Vector2(x + 0.5f, x + 0.5f));
                 verticies.Add( new Vector2(x + 0.5f, x + 1f));
+                if (x == ((numSteps - 1) / 2)) {
+                    verticies.Add( new Vector2(x + 1f, x + 1f));
+                    verticies.Add( new Vector2(x + 1f, x + 1.5f));
+                }
+            }
+            // create the top half of the stair step for the line y = x
+            for (int x = ((numSteps - 1) / 2); x >= 0; x--) {
+                verticies.Add( new Vector2(x + 0.5f, x + 1.5f));
+                verticies.Add( new Vector2(x + 0.5f, x + 1f));
+                verticies.Add( new Vector2(x, x + 1f));
+                verticies.Add( new Vector2(x, x + 0.5f));
+                if (x == 0) {
+                    verticies.Add(new Vector2(0,0));
+                }
             }
         } if (stairDirection == STAIR_DIRECTION.Down) {
-            for (int x = 0; x <= ((numSteps -1 ) / 2); x++) {
-                    verticies.Add( new Vector2(x, -x));
-                    verticies.Add( new Vector2(x, -x - 0.5f));
-                    verticies.Add( new Vector2(x + 0.5f, -x - 0.5f));
-                    verticies.Add( new Vector2(x + 0.5f, -x - 1f));
+            // same as above for y = -x
+            for (int x = 0; x <= ((numSteps - 1) / 2); x++) {
+                verticies.Add( new Vector2(-x, x));
+                verticies.Add( new Vector2(-x, x + 0.5f));
+                verticies.Add( new Vector2(-x - 0.5f, x + 0.5f));
+                verticies.Add( new Vector2(-x - 0.5f, x + 1f));
+                if (x == ((numSteps - 1) / 2)) {
+                    verticies.Add( new Vector2(-x - 1f, x + 1f));
+                    verticies.Add( new Vector2(-x - 1f, x + 1.5f));
+                }
+            }
+            for (int x = ((numSteps - 1) / 2); x >= 0; x--) {
+                verticies.Add( new Vector2(-x - 0.5f, x + 1.5f));
+                verticies.Add( new Vector2(-x - 0.5f, x + 1f));
+                verticies.Add( new Vector2(-x, x + 1f));
+                verticies.Add( new Vector2(-x, x + 0.5f));
+                if (x == 0) {
+                    verticies.Add( new Vector2(0, 0));
+                }
             }
         }
         SetPoints();
