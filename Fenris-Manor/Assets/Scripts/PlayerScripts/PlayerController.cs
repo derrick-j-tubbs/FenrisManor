@@ -17,16 +17,24 @@ public class PlayerController : MonoBehaviour
     
     public enum STAIR_STATE {
         on_stair,
-        near_stair,
         off_stair
     }
 
+    public enum PLAYER_FACING {
+        left,
+        right
+    }
+
     protected STAIR_STATE playerStairState;
+    protected PLAYER_FACING playerFacing;
+    protected bool isClimbing;
 
     void Awake(){
         Player = GameObject.Find("Player");
         PlayerAnimator = Player.GetComponent<Animator>();
         playerStairState = STAIR_STATE.off_stair;
+        playerFacing = PLAYER_FACING.right;
+        isClimbing = false;
     }
 
     public STAIR_STATE getPlayerStairState(){
@@ -35,5 +43,20 @@ public class PlayerController : MonoBehaviour
 
     public void setPlayerStairState(STAIR_STATE stairState) {
         playerStairState = stairState;
+    }
+
+    public PLAYER_FACING getPlayerFacing(){
+        return playerFacing;
+    }
+
+    public void setPlayerFacing(PLAYER_FACING facing) {
+        playerFacing = facing;
+    }
+
+    public bool getIsClimbing(){
+        return isClimbing;
+    }
+    public void setIsClimbing(bool climbing){
+        isClimbing = climbing;
     }
 }
