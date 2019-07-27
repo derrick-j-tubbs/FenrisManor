@@ -15,9 +15,9 @@ public class PhysicsObject : MonoBehaviour
     // Values for player control and horizontal movement
     protected Vector2 targetVelocity;   // Stores incoming input from outside of the class
 
-    protected Rigidbody2D rbObject;     // Variable to hold the Rigidbody2D Component of the object being affected by phsyics
-    protected Vector2 velocity;         // Variable to hold the Vector2 (x,y) velocity of the object
-    protected ContactFilter2D contactFilter;    // A filter for which layers should be included for collision [see note in declaration during Start()]
+    protected Rigidbody2D rbObject;                             // Variable to hold the Rigidbody2D Component of the object being affected by phsyics
+    protected Vector2 velocity;                                 // Variable to hold the Vector2 (x,y) velocity of the object
+    protected ContactFilter2D contactFilter;            // A filter for which layers should be included for collision [see note in declaration during Start()]
     protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];  // An array used to get the results of from the Rigidbody2D.cast
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D> (16); // A list to store the array for later uses
 
