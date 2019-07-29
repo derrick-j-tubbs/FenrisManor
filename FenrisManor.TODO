@@ -316,10 +316,10 @@ Phase 2: Feb 14 -??:
     Next Steps:
         ☐ Make it so that players can attack @created(19-07-17 01:57)
             Create an attack button, and make the player animate with an attack
-            ☐ Also add a hit box to the attack animation so that the player can do damage @created(19-07-17 01:59)
+            ✔ Also add a hit box to the attack animation so that the player can do damage @created(19-07-17 01:59) @done(19-07-28 23:12)
             ☐ Make candles breakable @created(19-07-17 02:00)
                 Don't worry about drop tables yet, that can come later.
-        ☐ Make it so the player can climb stairs @created(19-07-17 02:00)
+        ✔ Make it so the player can climb stairs @created(19-07-17 02:00) @done(19-07-28 23:11)
             ✔ Up should climb up stairs and vice versa, this may lead to animation problems, but we'll figure that out eventually @created(19-07-17 02:00) @done(19-07-24 19:13)
             ✔ Minor progress made after 5-6 hours. Player now recognizes the prep areas for stairs and can set a state upon entry / exit @created(19-07-22 23:20) @done(19-07-22 23:21)
                 My initial problem was that the PlayerStairController script was attached to the player, and I had it looking for collisions from itself, not collisions from other objects.
@@ -329,10 +329,10 @@ Phase 2: Feb 14 -??:
                     ✔ Left X/Y @created(19-07-23 11:54) @done(19-07-23 12:35)
             ✔ Calculate number of stairs by using trigger x positions. @created(19-07-23 11:48) @done(19-07-23 12:35)
                 (Right x - Left x) / 2 = num stairs [2 steps per tile so divide by 2]
-            ☐ Determine player y position by calculating which stair they would be on @created(19-07-23 11:49)
+            ✔ Determine player y position by calculating which stair they would be on @created(19-07-23 11:49) @done(19-07-28 23:11)
                 (Right x - player x) / 2 = currentX
                 currentX = Mathf.Round(currentX * 2) * 0.5f
-                ☐ Snap the player to this x/y position when climb button (up/down) is held while jumping @created(19-07-23 11:55)
+                ✔ Snap the player to this x/y position when climb button (up/down) is held while jumping @created(19-07-23 11:55) @done(19-07-28 23:11)
             ✔ Snap the player to the 'rail' when walking onto the stairs from the ground @created(19-07-23 21:47) @done(19-07-23 21:49)
             ✔ Determine whether the stairs go up or down / left or right by comparing left y to right y @created(19-07-23 11:52) @done(19-07-23 21:46)
                 if (left y < right y) stairs go up
@@ -359,8 +359,11 @@ Phase 2: Feb 14 -??:
                 ✔ Allow the player to press down and jump to dismount early. @created(19-07-23 21:57) @done(19-07-25 19:47)
                     Player can hold jump, then press down to dismount the stairs. [Note: only works with down not with whichever direction (left or right) would be down the stairs.]
                 Stair Bugs:
-                    ☐ Holding jump means you cannot progress up or down the stairs @created(19-07-26 20:54)
+                    ✔ Holding jump means you cannot progress up or down the stairs @created(19-07-26 20:54) @done(19-07-28 23:09)
                     ✔ If you hold jump from jumping onto a staircase it charges a jump for when you leave the stairs @created(19-07-26 20:55) @done(19-07-27 14:01)
+                        Note: Jumping into any trigger causes this same situation. It is more easily apparent what is happening when entering a door transition. Upwards momentum is preserved and used after passing through the doorway. I might be able to fix this with a boolean value attached to the jumping portion of the platformer controller.
+                        This bug was fixed by modifying the platformer controller's velocity.y to 0 in any transition. Now the player properly transitions off the stairs or through the doorway without any extra momentum.
+
             
             Considerations:
                 ✔ Consider the long term implications of adding a 'climb' button to the game, instead of using up/down. Perhaps discuss with other Castlevania      fans @created(19-07-23 21:50) @done(19-07-25 19:46)
