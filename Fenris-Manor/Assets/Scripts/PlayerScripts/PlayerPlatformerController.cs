@@ -63,12 +63,20 @@ public class PlayerPlatformerController : PhysicsObject
 
     }
 
-    public bool PlayerGrounded()
+    public bool GetPlayerGrounded()
     {
         return isGrounded;
     }
 
     public void SetPlayerGrounded(bool grounded) {
         isGrounded = grounded;
+    }
+
+    public Vector2 GetPlayerVelocity() {
+        return velocity;
+    }
+
+    public void SetPlayerVelocity(Vector2 newVelocity) {
+        velocity = newVelocity;
     }
 }
