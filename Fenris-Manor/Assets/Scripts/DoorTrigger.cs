@@ -30,7 +30,9 @@ public class DoorTrigger : MonoBehaviour {
                 (playerController = player.GetComponent<PlayerController>())) {
             Debug.Log("Controls Off");
             ToggleControls(false);
+            playerController.PlayerAnimator.Play("PlayerIdle");
             yield return new WaitForSeconds(1);
+            platformerController.SetPlayerVelocity(new Vector2(platformerController.GetPlayerVelocity().x, 0));
             Debug.Log("Controls On");
             ToggleControls(true);
 
