@@ -46,7 +46,7 @@ public class PlayerStairController : MonoBehaviour
             playerController.setIsClimbing(true);
             //Debug.Log("Control taken from platformer controller");
             // move player to base of stairs if grounded
-            if (platformerController.PlayerGrounded())
+            if (platformerController.GetPlayerGrounded())
             {
                 //Debug.Log("Closest End: " + closestEndStep.name);
                 fraction = 0;
@@ -69,7 +69,7 @@ public class PlayerStairController : MonoBehaviour
         if ((climb == 1 || climb == -1) && playerController.getPlayerStairState() != PlayerController.STAIR_STATE.on_stair) {
             platformerController.enabled = false;
             playerController.setIsClimbing(true);
-            if (platformerController.PlayerGrounded()) {
+            if (platformerController.GetPlayerGrounded()) {
                 fraction = 0;
                 StartCoroutine(MovePlayerToStairs(player, stairController));
             } else {
@@ -106,49 +106,15 @@ public class PlayerStairController : MonoBehaviour
         }
     }
 
-    GameObject FindClosestEnd(GameObject player, StairController stairController) {
-        float leftDifference = Mathf.Abs(stairController.leftEndStep.transform.position.x - player.transform.position.x);
-        float rightDifference = Mathf.Abs(stairController.rightEndStep.transform.position.x - player.transform.position.x);
-        if (leftDifference < rightDifference)
-            return stairController.leftEndStep;
-        return stairController.rightEndStep;
-    }
 
-    Vector2 FindClosestStep(GameObject player, StairController stairController, GameObject closestEndStep) {
-        float playerX = player.transform.position.x;
-        playerX = Mathf.Round(playerX * 2f) * 0.5f;
-        float playerY = 0;
-        if (stairDirection == StairController.STAIR_DIRECTION.Up){
-            if (closestEndStep.transform.position.x > playerX) {
-                //Debug.Log("right is closer");
-                playerY = closestEndStep.transform.position.y - (closestEndStep.transform.position.x - playerX) + 1.5f;
-            } else {
-                //Debug.Log("left is closer");
-                playerY = closestEndStep.transform.position.y + (playerX - closestEndStep.transform.position.x) + 1f;
-            }
-        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
-            if (closestEndStep.transform.position.x > playerX) {
-                //Debug.Log("right is closer");
-                //Debug.Log("Initial: " + closestEndStep.transform.position.y);
-                //Debug.Log("+/-: " + (playerX - closestEndStep.transform.position.x));
-                // not entirely clear why this one needs to be + 0.5f instead of + 1 same issue as right is closer above, likely something to do with my placement of the end points. As long as this is consistent I don't really care. Even if it does secretly bother me.
-                playerY = closestEndStep.transform.position.y + (closestEndStep.transform.position.x - playerX) + 0.5f;
-            } else {
-                //Debug.Log(playerX - closestEndStep.transform.position.x + 1);
-                //Debug.Log(closestEndStep.transform.position.y + 1);
-                //Debug.Log("left is closer");
-                playerY = closestEndStep.transform.position.y - (playerX - closestEndStep.transform.position.x) + 1f;
-            }
-        }
-        playerX += 0.25f;
-        return new Vector2(playerX, playerY);
-    }
+    // Mover functions
 
     IEnumerator SnapPlayerToStairs(GameObject player, StairController stairController) {
         GameObject closestEndStep = FindClosestEnd(player, stairController);
 
         Vector2 closestStep = FindClosestStep(player, stairController, closestEndStep);
         Vector2 posPlayer = new Vector2(player.transform.position.x, closestStep.y);
+        platformerController.SetPlayerVelocity(new Vector2(platformerController.GetPlayerVelocity().x, 0));
         playerController.setIsClimbing(true);
 
         this.enabled = false;
@@ -230,14 +196,6 @@ public class PlayerStairController : MonoBehaviour
         }
     }
 
-    bool CheckLeftBound(Vector2 moveTo) {
-        if (moveTo.x < leftEndStep.transform.position.x) {
-            directionLeft = "left";
-            return true;
-        }
-        return false;
-    }
-
     IEnumerator MoveRightOnStairs(GameObject player) {
         Vector2 moveTo = Vector2.zero;
         FlipSprite(PlayerController.PLAYER_FACING.right);
@@ -271,14 +229,6 @@ public class PlayerStairController : MonoBehaviour
         }
     }
 
-    bool CheckRightBound(Vector2 moveTo) {
-        if (moveTo.x > rightEndStep.transform.position.x) {
-            directionLeft = "right";
-            return true;
-        }
-        return false;
-    }
-
     IEnumerator MovePlayerOffStairs() {
         Vector2 posPlayer = player.transform.position;
         Vector2 moveTo = Vector2.zero;
@@ -309,13 +259,68 @@ public class PlayerStairController : MonoBehaviour
         platformerController.enabled = true;
         playerFalling = true;
         playerController.setIsClimbing(false);
-        while (!platformerController.PlayerGrounded()) {
+        while (!platformerController.GetPlayerGrounded()) {
             animator.Play("PlayerJumpDown");
             yield return new WaitForEndOfFrame();
         }
         playerController.setPlayerStairState(PlayerController.STAIR_STATE.off_stair);
         canMove = true;
         playerFalling = false;
+    }
+
+    // Helper Functions
+
+    GameObject FindClosestEnd(GameObject player, StairController stairController) {
+        float leftDifference = Mathf.Abs(stairController.leftEndStep.transform.position.x - player.transform.position.x);
+        float rightDifference = Mathf.Abs(stairController.rightEndStep.transform.position.x - player.transform.position.x);
+        if (leftDifference < rightDifference)
+            return stairController.leftEndStep;
+        return stairController.rightEndStep;
+    }
+
+    Vector2 FindClosestStep(GameObject player, StairController stairController, GameObject closestEndStep) {
+        float playerX = player.transform.position.x;
+        playerX = Mathf.Round(playerX * 2f) * 0.5f;
+        float playerY = 0;
+        if (stairDirection == StairController.STAIR_DIRECTION.Up){
+            if (closestEndStep.transform.position.x > playerX) {
+                //Debug.Log("right is closer");
+                playerY = closestEndStep.transform.position.y - (closestEndStep.transform.position.x - playerX) + 1.5f;
+            } else {
+                //Debug.Log("left is closer");
+                playerY = closestEndStep.transform.position.y + (playerX - closestEndStep.transform.position.x) + 1f;
+            }
+        } else if (stairDirection == StairController.STAIR_DIRECTION.Down) {
+            if (closestEndStep.transform.position.x > playerX) {
+                //Debug.Log("right is closer");
+                //Debug.Log("Initial: " + closestEndStep.transform.position.y);
+                //Debug.Log("+/-: " + (playerX - closestEndStep.transform.position.x));
+                // not entirely clear why this one needs to be + 0.5f instead of + 1 same issue as right is closer above, likely something to do with my placement of the end points. As long as this is consistent I don't really care. Even if it does secretly bother me.
+                playerY = closestEndStep.transform.position.y + (closestEndStep.transform.position.x - playerX) + 0.5f;
+            } else {
+                //Debug.Log(playerX - closestEndStep.transform.position.x + 1);
+                //Debug.Log(closestEndStep.transform.position.y + 1);
+                //Debug.Log("left is closer");
+                playerY = closestEndStep.transform.position.y - (playerX - closestEndStep.transform.position.x) + 1f;
+            }
+        }
+        playerX += 0.25f;
+        return new Vector2(playerX, playerY);
+    }
+
+    bool CheckLeftBound(Vector2 moveTo) {
+        if (moveTo.x < leftEndStep.transform.position.x) {
+            directionLeft = "left";
+            return true;
+        }
+        return false;
+    }
+    bool CheckRightBound(Vector2 moveTo) {
+        if (moveTo.x > rightEndStep.transform.position.x) {
+            directionLeft = "right";
+            return true;
+        }
+        return false;
     }
 
     void FlipSprite(PlayerController.PLAYER_FACING playerFacing) {
