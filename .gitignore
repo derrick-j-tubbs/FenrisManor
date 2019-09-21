@@ -92,3 +92,4 @@ $RECYCLE.BIN/
 # Scenes
 /Assets/Scenes
 *.unity
+*.unity.meta
